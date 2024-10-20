@@ -14,9 +14,9 @@ const DarkModeControl = ({
         <button
             onClick={(e) => {
                 e.preventDefault()
-                // setTheme(!theme)
                 handler(!darkMode)
             }}
+            data-dark-mode={darkMode ? "dark-mode" : "light-mode"}
         >
             <p className="text-2xl text-red-500">
                 {darkMode} Darkmode is active: {darkMode}
