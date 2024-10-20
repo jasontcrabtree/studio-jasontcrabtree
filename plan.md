@@ -1,7 +1,7 @@
 # Plan for build out project
 
 -   [ ] Homepage layout
--   [ ] Decide what features to include
+-   [ ] FEATURES
     -   [ ] Darkmode toggle
     -   [ ] GitHub integration showing commits per week for personal accountability
     -   [ ] Blog (md + postgres) + template
@@ -12,5 +12,14 @@
     -   [ ] Projects page + template (md, custom layout)
     -   [ ] Nested posters content
     -   [ ] Authentication so I can log in to publish/author have a different experience
--   [ ] Write tests for key user interactivity
--   [ ]
+-   [ ] TESTS
+    -   [x] Darkmode toggle
+    -   [ ] GitHub integration showing commits per week for personal accountability
+    -   [ ] Blog (md + postgres) + template
+    -   [ ] Links roll
+    -   [ ] Code snippets list
+    -   [ ] Pictures with s3 storage
+    -   [ ] Comments / Q&A feature
+    -   [ ] Projects page + template (md, custom layout)
+    -   [ ] Nested posters content
+    -   [ ] Authentication so I can log in to publish/author have a different experience
