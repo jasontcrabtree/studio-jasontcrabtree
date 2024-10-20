@@ -2,15 +2,15 @@
 
 -   [ ] Homepage layout
 -   [ ] Decide what features to include
-    -   [ ] Blog (md + postgres) + template
-    -   [ ] Pictures with s3 storage
-    -   [ ] Links list
-    -   [ ] About page
-    -   [ ] Projects page + template (md, custom layout)
-    -   [ ] Comments / Q&A feature
-    -   [ ] GitHub integration showing commits per week for personal accountability
     -   [ ] Darkmode toggle
+    -   [ ] GitHub integration showing commits per week for personal accountability
+    -   [ ] Blog (md + postgres) + template
+    -   [ ] Links roll
     -   [ ] Code snippets list
-    -   [ ] Authentication
+    -   [ ] Pictures with s3 storage
+    -   [ ] Comments / Q&A feature
+    -   [ ] Projects page + template (md, custom layout)
+    -   [ ] Nested posters content
+    -   [ ] Authentication so I can log in to publish/author have a different experience
 -   [ ] Write tests for key user interactivity
 -   [ ]
