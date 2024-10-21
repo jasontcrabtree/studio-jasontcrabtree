@@ -1,7 +1,6 @@
 "use client"
 
-const clientConnection = {}
-const serverConnection = {}
+const apiClient = {}
 
 const CommitTracker = () => {
     return <div>Commit tracker</div>

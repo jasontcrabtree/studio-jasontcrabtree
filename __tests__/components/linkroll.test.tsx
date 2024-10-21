@@ -1,24 +1,25 @@
 import { expect, test, vitest } from "vitest"
 import { fireEvent, render, screen } from "@testing-library/react"
+import Linkroll from "../../src/ui/components/linkroll"
 
 test("List of links shows on page", () => {
-    render(<div></div>)
+    render(<Linkroll />)
 })
 
 test("Links can be submitted", () => {
-    render(<div></div>)
+    render(<Linkroll />)
 })
 
 test("After submission, list of links changes to show new submissions", () => {
-    render(<div></div>)
+    render(<Linkroll />)
 })
 
 test("Depending on access flag, links render publicly/privately", () => {
-    render(<div></div>)
+    render(<Linkroll />)
 })
 
 test("Link visibility can be tweaked between public/private", () => {
-    render(<div></div>)
+    render(<Linkroll />)
 
     screen.getAllByRole("button")
 })
