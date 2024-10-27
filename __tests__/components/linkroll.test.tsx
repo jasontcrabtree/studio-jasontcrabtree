@@ -24,11 +24,15 @@ const mockData = [
 ]
 
 const setup = () => {
-    const utils = render(<Linkroll />)
+    const utils = render(<Linkroll session={true} />)
     const input = screen.getByLabelText(/Link/i)
+    const button = screen.getByRole("button", { name: /save/i })
+    const publicSwitch = screen.getByRole("switch", { name: /public/i })
 
     return {
         input,
+        button,
+        publicSwitch,
         ...utils,
     }
 }
@@ -59,25 +63,45 @@ test("Links can be submitted", async () => {
 
     const newLink = "https://blahblah"
 
-    // const text = "stuff"
-    // await userEvent.type(input, text)
     fireEvent.change(input, { target: { value: newLink } })
 
     expect(input.value).toEqual(newLink)
 
-    // expect(upperInput.value).toEqual(text.toUpperCase())
+    const button = screen.getByRole("button", { name: /save/i })
+    fireEvent.click(button)
 })
 
-test("After submission, list of links changes to show new submissions", () => {
-    render(<Linkroll />)
+test("After submission, list of links changes to show new submissions", async () => {
+    const newLink = "https://new-link.co.nz"
+    render(<Linkroll data={mockData} />)
+
+    const links = await screen.findAllByRole("link")
+
+    const input = screen.getByLabelText(/Link/i)
+    const button = screen.getByRole("button", { name: /save/i })
+
+    fireEvent.change(input, { target: { value: "newLink" } })
+
+    fireEvent.click(button)
+
+    const updatedLinks = await screen.findAllByRole("link")
+
+    expect(updatedLinks.length).toBe(links.length + 1)
+    expect(screen.getByText(newLink.replace("https://", ""))).toBeDefined()
 })
 
-test("Depending on access flag, links render publicly/privately", () => {
-    render(<Linkroll />)
-})
+test("Link visibility can be tweaked between public/private", async () => {
+    const { input, button, publicSwitch } = setup()
 
-test("Link visibility can be tweaked between public/private", () => {
-    render(<Linkroll />)
+    fireEvent.change(input, { target: { value: "New public link" } })
+    fireEvent.click(button)
 
-    screen.getAllByRole("button")
+    const publicItems = expect(await screen.queryAllByAltText(/public/i))
+
+    fireEvent.click(publicSwitch)
+    fireEvent.change(input, { target: { value: "New private link link" } })
+
+    const privateItems = expect(await screen.queryAllByAltText(/private/i))
+
+    expect(publicItems.length && privateItems.length).toBe(1)
 })
