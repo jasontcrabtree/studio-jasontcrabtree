@@ -64,7 +64,5 @@ test("different language syntax highlighting can be chosen", async () => {
 
     const snippetInput = screen.getByLabelText("Snippet")
 
-    expect(snippetInput.value).toEqual("")```
-        // Swift
-        ```
+    expect(snippetInput.value).toContain("Swift")
 })
