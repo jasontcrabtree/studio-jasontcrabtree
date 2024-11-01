@@ -1,8 +1,11 @@
+import CommitTracker from "@/ui/components/commit-tracker"
+
 export default function Page() {
     return (
         <div className="grid md:grid-cols-4 md:grid-rows-4 w-full h-screen text-4xl">
             <div className="bg-red-100 justify-center col-start-1 col-end-3 row-start-1 row-end-3">
-                <h1>Home</h1>1
+                <h1>Home</h1>
+                <CommitTracker />1
             </div>
             <div className="bg-red-200 col-start-2 col-end-4 row-start-1 row-end-3">
                 2
