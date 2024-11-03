@@ -42,7 +42,7 @@ const NavBar = ({
     links?: NavLink[]
 }) => {
     return (
-        <nav className="p-4 flex md:flex-row gap-2 justify-end w-full">
+        <nav className="p-4 flex md:flex-row gap-2 justify-end w-full dark:text-zinc-50">
             {links.map((link, i) => {
                 return (
                     <Link href={link.href} key={i}>

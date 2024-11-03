@@ -2,6 +2,72 @@
 Handles connecting to the GitHub graphql API in a server action and returns data via a simple interface based on different calls
 */
 
+const queryString = `query ($weekStart: DateTime, $monthStart: DateTime, $prevMonthStart: DateTime, $prevMonthEnd: DateTime, $yearStart: DateTime, $endDate: DateTime) {
+  viewer {
+    login
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+      }
+      contributionYears
+    }
+    contributionsThisWeek: contributionsCollection(from: $weekStart, to: $endDate) {
+      contributionCalendar {
+        totalContributions
+      }
+    }
+    contributionsThisMonth: contributionsCollection(from: $monthStart, to: $endDate) {
+      contributionCalendar {
+        totalContributions
+      }
+    }
+    contributionsLastMonth: contributionsCollection(
+      from: $prevMonthStart
+      to: $prevMonthEnd
+    ) {
+      contributionCalendar {
+        totalContributions
+      }
+    }
+    contributionsThisYear: contributionsCollection(from: $yearStart, to: $endDate) {
+      weekContributions: contributionCalendar {
+        totalContributions
+      }
+    }
+  }
+}`
+
+const contributionDates = () => {
+    const today = new Date()
+
+    // Start of current week (Monday)
+    const previousMonday = new Date(today)
+    const findDaysSinceMonday = (today.getDay() + 6) % 7
+    previousMonday.setDate(today.getDate() - findDaysSinceMonday)
+
+    // Start of current month
+    const monthStart = new Date(today.getFullYear(), today.getMonth(), 1)
+
+    // Prev month start & end
+    const prevMonthStart = new Date(
+        today.getFullYear(),
+        today.getMonth() - 1,
+        1
+    )
+    const prevMonthEnd = new Date(today.getFullYear(), today.getMonth(), 0)
+
+    const yearStart = new Date(new Date().getFullYear(), 0, 1)
+
+    return {
+        weekStart: previousMonday.toISOString(),
+        monthStart: monthStart.toISOString(),
+        prevMonthStart: prevMonthStart.toISOString(),
+        prevMonthEnd: prevMonthEnd.toISOString(),
+        yearStart: yearStart.toISOString(),
+        endDate: today.toISOString(),
+    }
+}
+
 export const fetchData = async (): Promise<
     GraphqlResponseType<ContributionDataType>
 > => {
@@ -21,37 +87,12 @@ export const fetchData = async (): Promise<
         },
     }
 
-    const query = JSON.stringify({
-        query: `query {
-            viewer {
-                login
-                contributionsCollection {
-                contributionYears
-                contributionCalendar {
-                    totalContributions
-                    weeks {
-                    contributionDays {
-                        contributionCount
-                        contributionLevel
-                        color
-                        date
-                        weekday
-                    }
-                    }
-                    months {
-                    firstDay
-                    totalWeeks
-                    }
-                }
-                }
-            }
-            }`,
-        variables: {},
-    })
-
     const res = await fetch(API_URL, {
         ...options,
-        body: query,
+        body: JSON.stringify({
+            query: queryString,
+            variables: contributionDates(),
+        }),
     })
 
     if (!res.ok) {
@@ -72,11 +113,11 @@ export const getCommits = async () => {
         return res.message
     }
 
-    if (res.data) {
-        const data = res.data?.viewer
-
-        console.log("HERE", data.contributionsCollection.contributionCalendar)
+    if (!res.data?.viewer) {
+        throw new Error("Unexpected error with no message")
     }
+
+    return res.data?.viewer
 }
 
 // TS Union type option (which requires type guard approach)

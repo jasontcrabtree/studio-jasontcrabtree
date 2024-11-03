@@ -7,7 +7,9 @@ const apiClient = {}
 const CommitTracker = async () => {
     // const contributions = await getContributionData()
 
-    getCommits()
+    const data = await getCommits()
+
+    console.log(data)
 
     return <div>Commit tracker</div>
 }
