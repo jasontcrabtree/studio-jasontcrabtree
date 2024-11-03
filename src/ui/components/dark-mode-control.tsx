@@ -1,3 +1,4 @@
+import { Camera } from "lucide-react"
 import { Dispatch, SetStateAction } from "react"
 
 /**
@@ -18,6 +19,7 @@ const DarkModeControl = ({
             }}
             data-dark-mode={darkMode ? "dark-mode" : "light-mode"}
         >
+            <Camera color="red" size={48} />
             <p className="text-2xl text-red-500">
                 {darkMode} Darkmode is active: {darkMode}
             </p>
