@@ -21,6 +21,7 @@ export default function RootLayout({
                     name="description"
                     content="Having fun building new and interesting things"
                 ></meta>
+                <link rel="icon" href="/favicon.svg" sizes="any" />
             </head>
             <body
                 className={`${GeistSans.className} antialiased h-dvh bg-white dark:bg-black`}

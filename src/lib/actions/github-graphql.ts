@@ -106,18 +106,20 @@ export const fetchData = async (): Promise<
     return json
 }
 
-export const getCommits = async () => {
+export const getCommits = async (): Promise<
+    GraphqlResponseType<ContributionDataType>
+> => {
     const res = await fetchData()
 
     if (res.message) {
-        return res.message
+        return res
     }
 
     if (!res.data?.viewer) {
         throw new Error("Unexpected error with no message")
     }
 
-    return res.data?.viewer
+    return res
 }
 
 // TS Union type option (which requires type guard approach)
@@ -147,8 +149,20 @@ type ContributionDataType = {
     viewer: {
         login: string
         contributionsCollection: {
+            contributionCalendar: { totalContributions: number }
             contributionYears: number[]
-            contributionCalendar: any
+        }
+        contributionsThisWeek: {
+            contributionCalendar: { totalContributions: number }
+        }
+        contributionsThisMonth: {
+            contributionCalendar: { totalContributions: number }
+        }
+        contributionsLastMonth: {
+            contributionCalendar: { totalContributions: number }
+        }
+        contributionsThisYear: {
+            weekContributions: { totalContributions: number }
         }
     }
 }

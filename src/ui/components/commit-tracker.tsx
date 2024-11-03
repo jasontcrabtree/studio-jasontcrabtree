@@ -1,17 +1,34 @@
-// import { getContributionData } from "@/lib/actions/github-graphql"
-
 import { getCommits } from "@/lib/actions/github-graphql"
 
-const apiClient = {}
+const CommitTracker = async ({ goal }: { goal: number }) => {
+    const { data, message } = await getCommits()
 
-const CommitTracker = async () => {
-    // const contributions = await getContributionData()
+    if (message || !data) {
+        return <div>{message}</div>
+    }
 
-    const data = await getCommits()
+    const node = data?.viewer
 
-    console.log(data)
+    const weekNum =
+        node.contributionsThisWeek.contributionCalendar.totalContributions
+    const monthNum =
+        node.contributionsLastMonth.contributionCalendar.totalContributions
+    const yearNum =
+        node.contributionsThisYear.weekContributions.totalContributions
 
-    return <div>Commit tracker</div>
+    return (
+        <div className="dark:bg-indigo-900 bg-indigo-200 dark:text-indigo-100 text-indigo-950 shadow-xl rounded p-2 m-2 w-fit">
+            <p className="font-bold">
+                This Week {weekNum}/{goal}{" "}
+                <span className="font-normal text-xs">
+                    ({Math.round((weekNum / goal) * 100)}
+                    %)
+                </span>
+            </p>
+            <p>Last Month {monthNum}</p>
+            <p>Full Year {yearNum}</p>
+        </div>
+    )
 }
 
 export default CommitTracker

@@ -42,15 +42,24 @@ const NavBar = ({
     links?: NavLink[]
 }) => {
     return (
-        <nav className="p-4 flex md:flex-row gap-2 justify-end w-full dark:text-zinc-50">
-            {links.map((link, i) => {
-                return (
-                    <Link href={link.href} key={i}>
-                        {link.label}
-                    </Link>
-                )
-            })}
-            <DarkModeControl darkMode={theme} handler={themeHandler} />
+        <nav className="p-4 flex md:flex-row gap-2 items-center justify-between w-full dark:text-zinc-300 text-zinc-700">
+            <Link href="/" className="dark:text-zinc-300 text-zinc-700">
+                Jason Crabtree
+                <span className="text-xs dark:text-zinc-700 text-zinc-300">
+                    {" "}
+                    est. 2018 - {new Date().getFullYear()}
+                </span>
+            </Link>
+            <div className="flex gap-2 items-center">
+                {links.map((link, i) => {
+                    return (
+                        <Link href={link.href} key={i}>
+                            {link.label}
+                        </Link>
+                    )
+                })}
+                <DarkModeControl darkMode={theme} handler={themeHandler} />
+            </div>
         </nav>
     )
 }

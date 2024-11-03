@@ -1,4 +1,4 @@
-import { Camera } from "lucide-react"
+import { MoonStar, SunMoon } from "lucide-react"
 import { Dispatch, SetStateAction } from "react"
 
 /**
@@ -19,10 +19,22 @@ const DarkModeControl = ({
             }}
             data-dark-mode={darkMode ? "dark-mode" : "light-mode"}
         >
-            <Camera color="red" size={48} />
-            <p className="text-2xl text-red-500">
-                {darkMode} Darkmode is active: {darkMode}
-            </p>
+            {darkMode ? (
+                <SunMoon
+                    size={20}
+                    stroke="#fbbf24"
+                    focusable
+                    fill="#6d28d9"
+                    fillOpacity={5}
+                />
+            ) : (
+                <MoonStar
+                    size={20}
+                    stroke="#6d28d9"
+                    // fill="#fbbf24"
+                    // fillOpacity={5}
+                />
+            )}
         </button>
     )
 }
