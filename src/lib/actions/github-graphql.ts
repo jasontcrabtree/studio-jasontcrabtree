@@ -69,27 +69,32 @@ export const getCommits = async () => {
     const res = await fetchData()
 
     if (res.message) {
-        return null
+        return res.message
     }
 
-    console.log(res.data)
+    if (res.data) {
+        const data = res.data?.viewer
+
+        console.log("HERE", data.contributionsCollection.contributionCalendar)
+    }
 }
 
 // TS Union type option (which requires type guard approach)
-type GraphqlResponseUnionType =
-    | {
-          message: string
-      }
-    | {
-          data: {
-              viewer: {
-                  login: string
-                  contributionsCollection: {
-                      contributionYears: number[]
-                  }
-              }
-          }
-      }
+// type GraphqlResponseUnionType =
+//     | {
+//           message: string
+//       }
+//     | {
+//           data: {
+//               viewer: {
+//                   login: string
+//                   contributionsCollection: {
+//                       contributionYears: number[]
+//                       contributionCalendar: any
+//                   }
+//               }
+//           }
+//       }
 
 // TS Generics option
 type GraphqlResponseType<T> = {
@@ -98,12 +103,11 @@ type GraphqlResponseType<T> = {
 }
 
 type ContributionDataType = {
-    data: {
-        viewer: {
-            login: string
-            contributionsCollection: {
-                contributionYears: number[]
-            }
+    viewer: {
+        login: string
+        contributionsCollection: {
+            contributionYears: number[]
+            contributionCalendar: any
         }
     }
 }
