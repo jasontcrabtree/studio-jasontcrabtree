@@ -1,6 +1,6 @@
 import { getCommits } from "@/lib/actions/github-graphql"
 
-const CommitTracker = async ({ goal }: { goal: number }) => {
+const CommitTracker = async ({ goal = 15 }: { goal: number }) => {
     const { data, message } = await getCommits()
 
     if (message || !data) {
