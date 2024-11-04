@@ -3,6 +3,8 @@
 import Link, { LinkProps } from "next/link"
 import DarkModeControl from "./dark-mode-control"
 import { Dispatch, SetStateAction } from "react"
+import CommitTracker from "./commit-tracker"
+import { Circle } from "lucide-react"
 
 interface NavLink extends LinkProps {
     label: String
@@ -50,7 +52,7 @@ const NavBar = ({
                     est. 2018 - {new Date().getFullYear()}
                 </span>
             </Link>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-4 items-center">
                 {links.map((link, i) => {
                     return (
                         <Link href={link.href} key={i}>
@@ -58,6 +60,17 @@ const NavBar = ({
                         </Link>
                     )
                 })}
+                <Circle size={8} fill="white" />
+                <CommitTracker
+                    goal={15}
+                    inclusions={{
+                        week: true,
+                        month: false,
+                        year: false,
+                    }}
+                    bg={false}
+                />
+                <Circle size={8} fill="white" />
                 <DarkModeControl darkMode={theme} handler={themeHandler} />
             </div>
         </nav>
