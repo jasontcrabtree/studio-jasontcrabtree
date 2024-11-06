@@ -2,6 +2,8 @@
 Handles connecting to the GitHub graphql API in a server action and returns data via a simple interface based on different calls
 */
 
+import { unstable_noStore as noStore } from "next/cache"
+
 const queryString = `query ($weekStart: DateTime, $monthStart: DateTime, $prevMonthStart: DateTime, $prevMonthEnd: DateTime, $yearStart: DateTime, $endDate: DateTime) {
   viewer {
     login
@@ -71,6 +73,8 @@ const contributionDates = () => {
 export const fetchData = async (): Promise<
     GraphqlResponseType<ContributionDataType>
 > => {
+    noStore()
+
     const GH_API_KEY = process.env.GH_PERSONAL_ACCESS_TOKEN_FINE_GRAINED
     const API_URL = "https://api.github.com/graphql"
 
@@ -94,6 +98,8 @@ export const fetchData = async (): Promise<
             variables: contributionDates(),
         }),
     })
+
+    // let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' })
 
     if (!res.ok) {
         return {
