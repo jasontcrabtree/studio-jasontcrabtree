@@ -24,7 +24,7 @@ export default function RootLayout({
                 <link rel="icon" href="/favicon.svg" sizes="any" />
             </head>
             <body
-                className={`${GeistSans.className} antialiased bg-white dark:bg-black`}
+                className={`${GeistSans.className} antialiased bg-white dark:bg-black min-h-screen`}
             >
                 <NavBar theme={darkMode} themeHandler={setDarkMode} />
                 <div className="w-full text-slate-800">{children}</div>

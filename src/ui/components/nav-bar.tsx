@@ -60,7 +60,6 @@ const NavBar = ({
                         </Link>
                     )
                 })}
-                <Circle size={8} fill="white" />
                 {/* <CommitTracker
                     goal={15}
                     inclusions={{
@@ -70,7 +69,6 @@ const NavBar = ({
                     }}
                     bg={false}
                 /> */}
-                <Circle size={8} fill="white" />
                 <DarkModeControl darkMode={theme} handler={themeHandler} />
             </div>
         </nav>

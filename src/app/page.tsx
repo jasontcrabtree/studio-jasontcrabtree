@@ -13,9 +13,6 @@ import {
     MountainSnow,
     Binoculars,
     DoorOpen,
-    Github,
-    Instagram,
-    Linkedin,
     CirclePower,
     Wand,
     SignpostBig,
@@ -30,8 +27,8 @@ export default async function Page() {
     console.log(buckets)
 
     return (
-        <div className="grid md:grid-cols-4 md:grid-rows-4 w-full">
-            <div className="text-white p-1 m-1 w-full col-start-1 col-end-8">
+        <div className="grid md:grid-cols-4 md:grid-rows-4 w-full h-full">
+            {/* <div className="text-white p-1 m-1 w-full col-start-1 col-end-8">
                 <div className="p-1 m-1 flex gap-2">
                     <TreeDeciduous size={64} strokeWidth={0.75} width={64} />
                     <TreePine size={64} strokeWidth={0.75} width={64} />
@@ -57,9 +54,10 @@ export default async function Page() {
                     <Wand size={64} strokeWidth={0.75} width={64} />
                     <BellRing size={64} strokeWidth={0.75} width={64} />
                 </div>
-            </div>
+            </div> */}
+
             {/* <div className="bg-blue-500 opacity-45 justify-center col-start-1 col-end-3 row-start-1 row-end-3 border border-green-100 p-1 mb-[-200px]">
-                <h1>Home</h1>1
+                block
             </div>
             <div className="bg-red-500 opacity-45 col-start-2 col-end-4 row-start-1 row-end-3 border border-green-500">
                 2
