@@ -5,23 +5,9 @@ import {
     paginateListBuckets,
     S3Client,
     S3ServiceException,
+    ListObjectsCommandOutput,
 } from "@aws-sdk/client-s3"
 import { AwsCredentialIdentity } from "@aws-sdk/types"
-
-// const params = {
-//     /** input parameters */
-// }
-// const command = new ListBucketsCommand(params)
-
-// // async/await.
-// try {
-//     const data = await client.send(command)
-//     // process data.
-// } catch (error) {
-//     // error handling.
-// } finally {
-//     // finally.
-// }
 
 const s3Instance = new S3Client({
     region: process.env.AWS_REGION,
@@ -31,10 +17,23 @@ const s3Instance = new S3Client({
     } as AwsCredentialIdentity,
 })
 
-export const listFilesInBucket = async ({ bucketName }) => {
+export const listFilesInBucket = async ({
+    bucketName,
+}: {
+    bucketName: string
+}): Promise<void> => {
     const command = new ListObjectsCommand({ Bucket: bucketName })
-    const { Contents } = await s3Instance.send(command)
+    const { Contents }: ListObjectsCommandOutput = await s3Instance.send(
+        command
+    )
+
+    if (!Contents) {
+        console.log("\nNo files found in the bucket.\n")
+        return
+    }
+
     const contentsList = Contents.map((c) => ` • ${c.Key}`).join("\n")
+
     console.log("\nHere's a list of files in the bucket:")
     console.log(`${contentsList}\n`)
 }

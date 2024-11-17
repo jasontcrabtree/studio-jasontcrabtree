@@ -7,7 +7,7 @@ import CommitTracker from "./commit-tracker"
 import { Circle } from "lucide-react"
 
 interface NavLink extends LinkProps {
-    label: String
+    label: string
     public?: boolean
     icon?: string
     order: number
