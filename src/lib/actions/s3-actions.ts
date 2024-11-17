@@ -1,10 +1,7 @@
 import {
     GetObjectCommand,
-    ListBucketsCommand,
     ListObjectsCommand,
-    paginateListBuckets,
     S3Client,
-    S3ServiceException,
     ListObjectsCommandOutput,
 } from "@aws-sdk/client-s3"
 import { AwsCredentialIdentity } from "@aws-sdk/types"

@@ -4,7 +4,6 @@ import Link, { LinkProps } from "next/link"
 import DarkModeControl from "./dark-mode-control"
 import { Dispatch, SetStateAction } from "react"
 import CommitTracker from "./commit-tracker"
-import { Circle } from "lucide-react"
 
 interface NavLink extends LinkProps {
     label: string
@@ -60,7 +59,7 @@ const NavBar = ({
                         </Link>
                     )
                 })}
-                {/* <CommitTracker
+                <CommitTracker
                     goal={15}
                     inclusions={{
                         week: true,
@@ -68,7 +67,7 @@ const NavBar = ({
                         year: false,
                     }}
                     bg={false}
-                /> */}
+                />
                 <DarkModeControl darkMode={theme} handler={themeHandler} />
             </div>
         </nav>

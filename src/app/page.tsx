@@ -1,25 +1,25 @@
 "use server"
 
-import { getObjectInfo, listFilesInBucket } from "@/lib/actions/s3-actions"
-import {
-    TreeDeciduous,
-    TreePine,
-    Trees,
-    TreePalm,
-    TentTree,
-    Tent,
-    FlameKindling,
-    Caravan,
-    MountainSnow,
-    Binoculars,
-    DoorOpen,
-    CirclePower,
-    Wand,
-    SignpostBig,
-    BellRing,
-    Squirrel,
-    Sailboat,
-} from "lucide-react"
+import { listFilesInBucket } from "@/lib/actions/s3-actions"
+// import {
+//     TreeDeciduous,
+//     TreePine,
+//     Trees,
+//     TreePalm,
+//     TentTree,
+//     Tent,
+//     FlameKindling,
+//     Caravan,
+//     MountainSnow,
+//     Binoculars,
+//     DoorOpen,
+//     CirclePower,
+//     Wand,
+//     SignpostBig,
+//     BellRing,
+//     Squirrel,
+//     Sailboat,
+// } from "lucide-react"
 
 export default async function Page() {
     const buckets = await listFilesInBucket({ bucketName: "mark-1-personal" })
