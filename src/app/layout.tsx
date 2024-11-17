@@ -11,7 +11,7 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    const [darkMode, setDarkMode] = useState(true)
+    const [darkMode, setDarkMode] = useState(false)
 
     return (
         <html lang="en" className={darkMode ? "dark" : ""}>

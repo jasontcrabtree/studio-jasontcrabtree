@@ -1,7 +1,8 @@
+"use client"
+
 import Link, { LinkProps } from "next/link"
 import DarkModeControl from "./dark-mode-control"
 import { Dispatch, SetStateAction } from "react"
-// import CommitTracker from "./commit-tracker/server"
 
 interface NavLink extends LinkProps {
     label: string
@@ -57,7 +58,6 @@ const NavBar = ({
                         </Link>
                     )
                 })}
-                {/* <CommitTracker /> */}
                 <DarkModeControl darkMode={theme} handler={themeHandler} />
             </div>
         </nav>
