@@ -17,7 +17,7 @@ const DarkModeControl = ({
                 e.preventDefault()
                 handler(!darkMode)
             }}
-            data-dark-mode={darkMode ? "dark-mode" : "light-mode"}
+            data-dark-mode={darkMode ? "light-mode" : "dark-mode"}
         >
             {darkMode ? (
                 <SunMoon

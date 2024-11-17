@@ -1,4 +1,6 @@
-import { getCommits } from "@/lib/actions/github-graphql"
+"use client"
+
+import { ContributionDataType } from "@/lib/actions/github-graphql"
 
 export type Include = {
     week: boolean
@@ -6,21 +8,16 @@ export type Include = {
     year: boolean
 }
 
-const CommitTracker = async ({
-    goal,
-    inclusions,
-    bg,
-}: {
-    goal: number
-    inclusions: Include
-    bg: boolean
-}) => {
-    const { data, message } = await getCommits()
+const inclusions = {
+    week: true,
+    month: false,
+    year: false,
+}
 
-    if (message || !data) {
-        return <div>{message}</div>
-    }
+const goal = 15
+const bg = false
 
+const ClientComponent = ({ data }: { data: ContributionDataType }) => {
     const node = data?.viewer
 
     const weekNum =
@@ -31,7 +28,6 @@ const CommitTracker = async ({
         node.contributionsThisYear.weekContributions.totalContributions
 
     return (
-        // <div className={${dark: bg-zinc-900 bg-zinc-200} dark: text-zinc - 100 text - zinc - 950 w - fit p - 2`}>
         <div
             className={`${
                 bg && "dark:bg-zinc-900 bg-zinc-200"
@@ -58,4 +54,4 @@ const CommitTracker = async ({
     )
 }
 
-export default CommitTracker
+export default ClientComponent

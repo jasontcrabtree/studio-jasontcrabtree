@@ -1,8 +1,8 @@
+"use server"
+
 /*
 Handles connecting to the GitHub graphql API in a server action and returns data via a simple interface based on different calls
 */
-
-import { unstable_noStore as noStore } from "next/cache"
 
 const queryString = `query ($weekStart: DateTime, $monthStart: DateTime, $prevMonthStart: DateTime, $prevMonthEnd: DateTime, $yearStart: DateTime, $endDate: DateTime) {
   viewer {
@@ -73,8 +73,6 @@ const contributionDates = () => {
 export const fetchData = async (): Promise<
     GraphqlResponseType<ContributionDataType>
 > => {
-    noStore()
-
     const GH_API_KEY = process.env.GH_PERSONAL_ACCESS_TOKEN_FINE_GRAINED
     const API_URL = "https://api.github.com/graphql"
 
@@ -112,7 +110,7 @@ export const fetchData = async (): Promise<
     return json
 }
 
-export const getCommits = async (): Promise<
+export const fetchCommitsAction = async (): Promise<
     GraphqlResponseType<ContributionDataType>
 > => {
     const res = await fetchData()
@@ -146,12 +144,12 @@ export const getCommits = async (): Promise<
 //       }
 
 // TS Generics option
-type GraphqlResponseType<T> = {
+export type GraphqlResponseType<T> = {
     data?: T
     message?: string
 }
 
-type ContributionDataType = {
+export type ContributionDataType = {
     viewer: {
         login: string
         contributionsCollection: {

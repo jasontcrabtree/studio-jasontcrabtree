@@ -1,10 +1,10 @@
 "use client"
 
 import { GeistSans } from "geist/font/sans"
-import NavBar from "@/ui/components/nav-bar"
 import { useState } from "react"
 
 import "@/ui/globals.css"
+import NavBar from "@/ui/components/nav-bar"
 
 export default function RootLayout({
     children,
