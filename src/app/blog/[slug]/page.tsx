@@ -1,7 +1,7 @@
 import { getBlogPosts } from "@/lib/utils/blog"
 
 export async function generateStaticParams() {
-    let posts = getBlogPosts()
+    const posts = getBlogPosts()
 
     return posts.map((post) => ({
         slug: post.slug,
