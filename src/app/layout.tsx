@@ -11,7 +11,10 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    const [darkMode, setDarkMode] = useState(false)
+    const userTime = new Date().getHours()
+
+    // If it's after 6pm dark mode time
+    const [darkMode, setDarkMode] = useState(userTime < 1800)
 
     return (
         <html lang="en" className={darkMode ? "dark" : ""}>

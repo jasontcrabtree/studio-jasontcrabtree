@@ -1,0 +1,105 @@
+---
+title: "What does Nullable mean in Hasura? Researching a definition"
+publishedAt: 2021-08-11
+summary: An investigation into the definition of Nullable in Hasura, using GraphQL. References and an answer I can understand!
+---
+
+Nullable, what's the definition? This answer is based on my own research and reading articles and docs.
+
+Nullable GraphQL field on [Hasura definition](#definition-outcome) (specifically in the context of GraphQL):
+
+-   **Nullable: Optional** (if data is provided, it must be the correct type, no data or _null_ is also an option)
+-   **Not-nullable: Required** (_data of the correct type must be provided_)
+
+---
+
+Hasura seems great, but sometimes the docs are a little unclear to me as a beginner. One area of that is the nullable tickbox while creating new tables. I can't find a clear definition of Nullable in the UI, or the docs (just references that seem to assume you already know what it is), and googling 'Nullable' leads to C code references. So this is my thought process and googling digging for an answer I can directly understand.Definitely no guarantees I came to the correct answer, but I know which buttons work in Hasura now!
+
+[Hasura GraphQL Nulls Cheatsheet](https://hasura.io/blog/graphql-nulls-cheatsheet/) has the following code snippet:
+
+_TypeScript:_
+
+```
+interface User {
+  name?: string // opting into optional name
+  name: string | null // opting into nullable name
+}
+```
+
+_GraphQL:_
+
+```
+type User {
+  name: String! // opting into non-nullable name
+}
+```
+
+I know from another project (working with Prisma and Postgres) that a Prisma model with ? is optional. So this code snippet to me appears to be saying, User.name? is optional, and GQL User.name has **opted** into being non-nullable. As in, it's **opted** into being non-optional, AKA required.
+
+Above, this is explained via _"But in GraphQL, all types are nullable by default, and you opt into non-nullability."_
+
+Which helps me understand nullable isn't directly the same as optional, but doesn't say what it is.
+
+The same article later offers a cheatsheet, found at [Direct link to GraphQL Nulls Cheatsheet Image](https://hasura.io/blog/content/images/2020/05/graphql-nulls-cheatsheet.png).
+
+Here's that image, full credit to Hasura ![Hasura GraphQL Nulls Cheatsheet](https://hasura.io/blog/content/images/2020/05/graphql-nulls-cheatsheet.png)
+
+### This offers the following info about Nulls in Graphql:
+
+> Nullable inputs are always optional
+
+> Non-null inputs are always required
+
+---
+
+A secondary source [Hasura Custom GraphQL Types docs](https://hasura.io/docs/latest/graphql/core/actions/types/index.html) offers this snippet
+
+```
+type UserInfo {
+  accessToken: String!
+  userId: Int!
+}
+```
+
+This is an object type called UserInfo that has two fields:
+accessToken: This field is of type String! (non-nullable String)
+userId: This field is of type Int! (non-nullable Int)
+
+---
+
+### After some testing with Hasura, I've discovered the following:
+
+-   A table column that is _not_ ticked as nullable (so is not-nullable) is _required_ to submit a mutation. When data is passed in to the _not ticked_ column, the mutation runs fine.
+-   When the same column has nullable ticked on (making the column nullable), the same mutation can be _successfully run_, saving data, with an empty field. The field also runs when null is passed.
+
+<h3 id="definition-outcome">So to recap where I'm at so far:</h3>
+
+-   Not Nullable = column must have the expected type data
+-   Nullable = column can be empty or set to null, or the expected type
+
+-   Nullable in this context works like this: A graphql entry can be either empty, have the expected data, or set to null
+-   Not-nullable enforces the expected data is passed
+
+So extrapolating, a definition of nullable (specifically in the context of GraphQL on Hasura) I can understand is:
+
+-   Nullable: Optional, correct type required, no data or _null_ is fine
+-   Not-nullable: Required, correct type must be passed
+
+---
+
+15th Aug: I had the bright idea to check YouTube for Hasura Data Modelling guides, and found a great video - [Hasura YouTube Channel - Data Modelling Video, Timestamped to Nullable reference](https://youtu.be/9zi1QSrQ6Aw?t=170). In the video nullable is explained as "which means that there's going to be something that I could leave empty inside of my database, and I'm not going to run into any issues with that." This matches nicely with my own research, which is great!
+
+### References:
+
+-   https://stackoverflow.com/questions/17220114/how-to-declare-a-type-as-nullable-in-typescript
+-   https://hasura.io/blog/graphql-nulls-cheatsheet/
+-   https://hasura.io/blog/graphql-nulls-cheatsheet/#benefits-of-nullable-types
+-   https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
+-   https://www.reddit.com/r/AskProgramming/comments/3h8o22/eli5_what_are_nullable_types_c/
+-   https://hasura.io/docs/latest/graphql/core/actions/types/index.html
+-   https://thenewstack.io/introduction-to-graphql/
+-   https://blog.logrocket.com/anti-patterns-graphql-schema-design/
+-   https://graphql.org/learn/best-practices/#nullability
+-   https://graphql.org/graphql-js/basic-types/
+-   https://www.apollographql.com/blog/graphql/basics/using-nullability-in-graphql/
+-   https://medium.com/expedia-group-tech/nullability-in-graphql-b8d06fbd8a3c

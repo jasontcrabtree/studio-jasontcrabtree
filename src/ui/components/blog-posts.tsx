@@ -1,25 +1,56 @@
-import BlogPost, { BlogPostType } from "./blog-post"
+import Link from "next/link"
 
-const mockPosts = [
-    {
-        title: "Demo Post One",
-        body: "## This is the first post \n",
-        publishTimestamp: new Date(1729469485),
-    },
-    {
-        title: "Demo Post Two",
-        body: "This is the second post, which starts differently",
-        publishTimestamp: new Date(1729467485),
-    },
-]
+import { getBlogPosts } from "@/lib/utils/blog"
 
-const BlogPosts = ({ posts = mockPosts }: { posts: BlogPostType[] }) => {
+export type BlogPostType = {
+    metadata: BlogMetaType
+    body: string
+    slug: string
+}
+
+export type BlogMetaType = {
+    title: string
+    publishTimestamp: string
+    summary?: string
+    ogImage?: string
+}
+
+const BlogPost = ({ metadata, slug }: Partial<BlogPostType>) => {
+    if (!metadata) {
+        return null
+    }
+
+    const published = Date.parse(metadata.publishTimestamp)
+
+    console.log(published)
+
     return (
-        <div>
+        <li>
+            <Link
+                className="dark:text-slate-100 text-slate-800 cursor-pointer dark:hover:text-green-500"
+                href={`/blog/${slug}`}
+            >
+                {metadata.title}
+            </Link>
+        </li>
+    )
+}
+
+const BlogPosts = () => {
+    const posts = getBlogPosts()
+
+    return (
+        <ul className="flex flex-col gap-4">
             {posts.map((post: BlogPostType, i) => {
-                return <BlogPost key={i} {...post} />
+                return (
+                    <BlogPost
+                        key={i}
+                        metadata={post.metadata}
+                        slug={post.slug}
+                    />
+                )
             })}
-        </div>
+        </ul>
     )
 }
 

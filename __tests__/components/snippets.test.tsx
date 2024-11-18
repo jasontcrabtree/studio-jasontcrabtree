@@ -16,7 +16,7 @@ const mockData = [
         id: "1",
         language: languages.JS,
         body: `\`\`\`
-        console.log('hello')
+        console.warn('hello')
         \`\`\``,
     },
 ]

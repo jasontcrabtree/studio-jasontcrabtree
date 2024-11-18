@@ -1,0 +1,25 @@
+---
+publishedAt: 2021-04-15
+title: "NextJS, Next-Auth, Netlify, Postgres, Express"
+summary: "Debugging"
+---
+
+## Lessons in Debugging
+
+-   Node App - doesn't build ~4 hours of debugging
+    -   Build Express Hello World starter, built-in utility, builds in 45 secs
+    -   Connecting to DB
+-   Next App - builds locally
+    -   pg, pg-native
+    -   Prisma Adapter
+        -   Prisma Query Engine Error
+            -   https://github.com/prisma/prisma/issues/5870
+        -   Schema.prisma generator client binaryTargerts
+        -   Prisma DATABASE_URL
+        -   Install Prisma as dependency
+    -   next.config.js set target to 'experimental-serverless-trace'
+    -   package.json postbuild command
+    -   Netlify.toml
+        -   command = "npm run prisma"
+        -   Remove nextplugin, add as postbuild command, doesn't work
+        -   Revert to main build command of next build, add npm run prisma as postbuild
