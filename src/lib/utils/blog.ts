@@ -34,7 +34,8 @@ function readMDXFile(filePath: fs.PathOrFileDescriptor) {
 
 function getMDXData(dir: string): BlogPostType[] {
     const mdxFiles = getMDXFiles(dir)
-    return mdxFiles.map((file) => {
+
+    const results = mdxFiles.map((file) => {
         const { metadata, body } = readMDXFile(path.join(dir, file))
 
         const slug = path.basename(file, path.extname(file))
@@ -45,6 +46,12 @@ function getMDXData(dir: string): BlogPostType[] {
             body,
         }
     })
+
+    // const sorted = results.sort((a, b) => {
+    //     return a.metadata.publishTimestamp - b.metadata.publishTimestamp
+    // })
+
+    return results
 }
 
 export function getBlogPosts() {

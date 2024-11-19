@@ -1,4 +1,5 @@
 import { getBlogPosts } from "@/lib/utils/blog"
+import { ReactElement } from "react"
 
 export async function generateStaticParams() {
     const posts = getBlogPosts()
@@ -8,7 +9,11 @@ export async function generateStaticParams() {
     }))
 }
 
-async function Page({ params }: { params: { slug: string } }) {
+async function Page({
+    params,
+}: {
+    params: { slug: string }
+}): Promise<ReactElement> {
     const { slug } = await params
 
     const post = getBlogPosts().find((post) => {

@@ -13,8 +13,8 @@ export default function RootLayout({
 }>) {
     const userTime = new Date().getHours()
 
-    // If it's after 6pm dark mode time
-    const [darkMode, setDarkMode] = useState(userTime < 1800)
+    // If it's after 18:00 set to dark mode
+    const [darkMode, setDarkMode] = useState(userTime > 18)
 
     return (
         <html lang="en" className={darkMode ? "dark" : ""}>
@@ -27,7 +27,7 @@ export default function RootLayout({
                 <link rel="icon" href="/favicon.svg" sizes="any" />
             </head>
             <body
-                className={`${GeistSans.className} antialiased bg-white dark:bg-black min-h-screen`}
+                className={`${GeistSans.className} antialiased bg-white dark:bg-black text-slate-800 dark:text-slate-100 min-h-screen text-pretty`}
             >
                 <NavBar theme={darkMode} themeHandler={setDarkMode} />
                 <div className="w-full text-slate-800">{children}</div>

@@ -1,5 +1,3 @@
-"use server"
-
 import ClientComponent from "./client"
 import {
     ContributionDataType,

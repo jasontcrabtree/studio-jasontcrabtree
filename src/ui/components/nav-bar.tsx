@@ -13,22 +13,16 @@ interface NavLink extends LinkProps {
 
 const siteLinks: NavLink[] = [
     {
-        label: "Home",
-        href: "/",
-        public: true,
-        order: 0,
-    },
-    {
         label: "Blog",
         href: "/blog",
         public: true,
         order: 1,
     },
     {
-        label: "About",
-        href: "/about",
+        label: "Resume",
+        href: "/resume",
         public: true,
-        order: 2,
+        order: 0,
     },
 ]
 
@@ -42,7 +36,7 @@ const NavBar = ({
     links?: NavLink[]
 }) => {
     return (
-        <nav className="p-4 flex md:flex-row gap-2 items-center justify-between w-full dark:text-zinc-300 text-zinc-700">
+        <nav className="p-4 flex md:flex-row gap-2 items-center justify-center w-full dark:text-zinc-300 text-zinc-700">
             <Link href="/" className="dark:text-zinc-300 text-zinc-700">
                 Jason Crabtree
                 <span className="text-xs dark:text-zinc-700 text-zinc-300">
@@ -51,13 +45,15 @@ const NavBar = ({
                 </span>
             </Link>
             <div className="flex gap-4 items-center">
-                {links.map((link, i) => {
-                    return (
-                        <Link href={link.href} key={i}>
-                            {link.label}
-                        </Link>
-                    )
-                })}
+                {links
+                    .sort((a, b) => a.order - b.order)
+                    .map((link, i) => {
+                        return (
+                            <Link href={link.href} key={i}>
+                                {link.label}
+                            </Link>
+                        )
+                    })}
                 <DarkModeControl darkMode={theme} handler={themeHandler} />
             </div>
         </nav>
