@@ -1,5 +1,4 @@
 import { getBlogPosts } from "@/lib/utils/blog"
-import { ReactElement } from "react"
 
 export async function generateStaticParams() {
     const posts = getBlogPosts()
@@ -9,15 +8,18 @@ export async function generateStaticParams() {
     }))
 }
 
-async function Page({
-    params,
-}: {
-    params: { slug: string }
-}): Promise<ReactElement> {
+type ParamsType = Promise<{ slug: string[] }>
+
+// export default async function Challenge({ params }: { params: tParams }) {
+//     const { slug } = await params
+//     const productID = slug[1]
+// }
+
+async function Page({ params }: { params: ParamsType }) {
     const { slug } = await params
 
     const post = getBlogPosts().find((post) => {
-        return post.slug === slug
+        return post.slug === slug[1]
     })
 
     return (
