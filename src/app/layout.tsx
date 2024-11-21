@@ -5,6 +5,7 @@ import { useState } from "react"
 
 import "@/ui/globals.css"
 import NavBar from "@/ui/components/nav-bar"
+import Footer from "@/ui/components/footer"
 
 export default function RootLayout({
     children,
@@ -31,6 +32,7 @@ export default function RootLayout({
             >
                 <NavBar theme={darkMode} themeHandler={setDarkMode} />
                 <div className="w-full text-slate-800">{children}</div>
+                <Footer />
             </body>
         </html>
     )

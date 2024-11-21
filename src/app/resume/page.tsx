@@ -55,7 +55,7 @@ const SectionHeading = ({ label }: { label: string }) => {
 const Page = () => {
     return (
         <div className="">
-            <div className="max-w-[720px] mx-auto flex flex-col gap-8">
+            <div className="max-w-[800px] mx-auto flex flex-col gap-8">
                 <div className="flex flex-row gap-4 items-center w-full">
                     <h1 className="font-bold text-2xl mr-auto">Resume</h1>
                     <p className="text-slate-700">Updated: 19/11/2024</p>

@@ -66,7 +66,7 @@ const contributionDates = () => {
         prevMonthStart: prevMonthStart.toISOString(),
         prevMonthEnd: prevMonthEnd.toISOString(),
         yearStart: yearStart.toISOString(),
-        endpublishedAt: today.toISOString(),
+        endpublished: today.toISOString(),
     }
 }
 
@@ -114,8 +114,6 @@ export const fetchCommitsAction = async (): Promise<
     GraphqlResponseType<ContributionDataType>
 > => {
     const res = await fetchData()
-
-    console.log(res)
 
     if (res.message) {
         return res

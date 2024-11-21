@@ -10,7 +10,7 @@ export type BlogPostType = {
 
 export type BlogMetaType = {
     title: string
-    publishTimestamp: string
+    published: string
     summary?: string
     ogImage?: string
 }
@@ -20,9 +20,7 @@ const BlogPost = ({ metadata, slug }: Partial<BlogPostType>) => {
         return null
     }
 
-    const published = Date.parse(metadata.publishTimestamp)
-
-    console.log(published)
+    // const published = Date.parse(metadata.published)
 
     return (
         <li>
@@ -36,12 +34,12 @@ const BlogPost = ({ metadata, slug }: Partial<BlogPostType>) => {
     )
 }
 
-const BlogPosts = () => {
+const BlogPosts = ({ limit }: { limit: number }) => {
     const posts = getBlogPosts()
 
     return (
         <ul className="flex flex-col gap-4">
-            {posts.map((post: BlogPostType, i) => {
+            {posts.slice(0, limit).map((post: BlogPostType, i) => {
                 return (
                     <BlogPost
                         key={i}

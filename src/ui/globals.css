@@ -24,3 +24,7 @@
         text-wrap: balance;
     }
 }
+
+a:hover {
+    color: #22c55e;
+}

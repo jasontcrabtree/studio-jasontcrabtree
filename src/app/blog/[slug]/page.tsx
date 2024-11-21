@@ -1,3 +1,5 @@
+import { MDXRemote } from "next-mdx-remote/rsc"
+
 import { getBlogPosts } from "@/lib/utils/blog"
 
 export async function generateStaticParams() {
@@ -8,26 +10,25 @@ export async function generateStaticParams() {
     }))
 }
 
-type ParamsType = Promise<{ slug: string[] }>
-
-// export default async function Challenge({ params }: { params: tParams }) {
-//     const { slug } = await params
-//     const productID = slug[1]
-// }
-
-async function Page({ params }: { params: ParamsType }) {
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
 
     const post = getBlogPosts().find((post) => {
-        return post.slug === slug[1]
+        return post.slug === slug
     })
 
+    console.log(post)
+
+    if (!post?.body) {
+        return null
+    }
+
     return (
-        <article>
+        <article className="w-full max-w-[64ch] mx-auto leading-normal flex flex-col gap-4">
             <h1>{post?.metadata.title}</h1>
             {post?.metadata.summary && post.metadata.summary}
 
-            <main>{post?.body}</main>
+            <MDXRemote source={post.body} />
         </article>
     )
 }

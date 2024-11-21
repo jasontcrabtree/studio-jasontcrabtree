@@ -1,5 +1,5 @@
 ---
-publishedAt: 2024-05-02
+published: 2024-05-02
 summary: ""
 title: ""
 # type: 'blog-post'

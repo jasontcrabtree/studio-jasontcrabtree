@@ -47,11 +47,11 @@ function getMDXData(dir: string): BlogPostType[] {
         }
     })
 
-    // const sorted = results.sort((a, b) => {
-    //     return a.metadata.publishTimestamp - b.metadata.publishTimestamp
-    // })
-
-    return results
+    return results.sort(
+        (a, b) =>
+            new Date(b.metadata.published).getTime() -
+            new Date(a.metadata.published).getTime()
+    )
 }
 
 export function getBlogPosts() {
