@@ -11,6 +11,7 @@ import AuthProvider from "@/ui/components/auth-provider"
 const getAuthSession = async () => {
     // const userToken = (await cookies()).get("crm-clone.token")?.value
     const userToken = true
+    const x = true
     return {
         session: !!userToken,
         user: {
