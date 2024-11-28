@@ -1,6 +1,5 @@
 "use client"
 
-import { GeistSans } from "geist/font/sans"
 import { useState } from "react"
 
 import "@/ui/globals.css"
@@ -26,12 +25,16 @@ export default function RootLayout({
                     content="Having fun building new and interesting things"
                 ></meta>
                 <link rel="icon" href="/favicon.svg" sizes="any" />
+                <link
+                    href="https://use.typekit.net/hye8foj.css"
+                    rel="stylesheet"
+                ></link>
             </head>
             <body
-                className={`${GeistSans.className} antialiased bg-white dark:bg-black text-slate-800 dark:text-slate-100 min-h-screen text-pretty`}
+                className={`antialiased bg-white dark:bg-black text-gray-800 dark:text-gray-100 min-h-screen text-pretty`}
             >
                 <NavBar theme={darkMode} themeHandler={setDarkMode} />
-                <div className="w-full text-slate-800">{children}</div>
+                <div className="w-full text-gray-800">{children}</div>
                 <Footer />
             </body>
         </html>

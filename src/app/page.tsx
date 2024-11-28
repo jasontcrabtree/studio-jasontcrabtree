@@ -10,7 +10,7 @@ export default function Page() {
             <div className="w-[800px] mx-auto flex flex-col gap-8">
                 <div>
                     <h1 className="font-semibold text-3xl pb-8">
-                        Hi, I'm Jason
+                        Hello, I'm Jason!
                     </h1>
                 </div>
 
@@ -28,6 +28,8 @@ export default function Page() {
                     <h2 className="font-semibold text-xl">Blog</h2>
                     <BlogPosts limit={4} />
                 </div>
+
+                <CommitTracker />
             </div>
         </div>
     )

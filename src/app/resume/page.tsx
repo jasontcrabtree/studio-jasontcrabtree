@@ -3,30 +3,30 @@ import Link from "next/link"
 
 const ContactInfo = ({ className }: { className: string }) => {
     return (
-        <section className={`${className} text-sm w-full dark:text-slate-100`}>
+        <section className={`${className} text-sm w-full dark:text-gray-100`}>
             <SectionHeading label="Contact Information" />
             <div className="grid md:grid-cols-3 gap-2">
-                <span className="flex flex-row gap-1 bg-slate-200 dark:bg-slate-900 dark:text-slate-200 rounded p-1 py-3 font-medium items-center justify-center">
+                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center">
                     Auckland, New Zealand
                 </span>
 
                 <a
                     href="mailto:jasontcrabtree@gmail.com"
-                    className="flex flex-row gap-1 bg-slate-200 dark:bg-slate-900 dark:text-slate-200 rounded p-1 py-3 font-medium items-center justify-center hover:cursor-pointer"
+                    className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center hover:cursor-pointer"
                 >
                     jasontcrabtree@gmail.com
                 </a>
 
-                <button className="flex flex-row gap-1 bg-slate-200 dark:bg-slate-900 dark:text-slate-200 rounded p-1 py-3 font-medium items-center justify-center">
+                <button className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center">
                     Phone Number
                 </button>
-                <span className="flex flex-row gap-1 bg-slate-200 dark:bg-slate-900 dark:text-slate-200 rounded p-1 py-3 font-medium items-center justify-center">
+                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center">
                     <Link href="https://github.com/jasontcrabtree">GitHub</Link>
                 </span>
-                <span className="flex flex-row gap-1 bg-slate-200 dark:bg-slate-900 dark:text-slate-200 rounded p-1 py-3 font-medium items-center justify-center">
+                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center">
                     <Link href="https://jasontcrabtree.com">Website</Link>
                 </span>
-                <span className="flex flex-row gap-1 bg-slate-200 dark:bg-slate-900 dark:text-slate-200 rounded p-1 py-3 font-medium items-center justify-center">
+                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center">
                     <Link href="https://www.linkedin.com/in/jasontcrabtree/">
                         LinkedIn
                     </Link>
@@ -58,7 +58,7 @@ const Page = () => {
             <div className="max-w-[800px] mx-auto flex flex-col gap-8">
                 <div className="flex flex-row gap-4 items-center w-full">
                     <h1 className="font-bold text-2xl mr-auto">Resume</h1>
-                    <p className="text-slate-700">Updated: 19/11/2024</p>
+                    <p className="text-gray-700">Updated: 19/11/2024</p>
                     <button className="text-sm font-bold p-2 bg-blue-600 rounded text-white flex flex-row gap-2 px-4 items-center">
                         PDF
                         <FileDown size={18} />

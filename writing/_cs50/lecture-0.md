@@ -63,7 +63,7 @@ We can also use bits to represent instructions (as well as numbers). Spot (Bosto
 
 ### Converting bits into letters: Assigning Values
 
-In order to convert bits into letters, we've given each letter a number value. The system is based on the number 65, so Capital A is represented in bits through transistors being off/on to sum to the number 65. Typically this would use a byte (8 bits) even if not all are needed as a a convention, so 01000001 translates to 65 (2^6 + 2^0).
+In order to convert bits into letters, we've given each letter a number value. The system is based on the number 65, so Capital A is represented in bits through transistors being off/on to sum to the number 65. Typically this would use a byte (8 bits) even if not all are needed as a a convention, so 01000001 trangrays to 65 (2^6 + 2^0).
 
 This system of using bits for letters is known as (mic-drop) **ASCII**. The A (American) is relevant as languages other than english may have more than 256 characters (256 characters being represented by 0 through 255 in a single byte).
 

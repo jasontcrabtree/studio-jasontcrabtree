@@ -28,3 +28,9 @@
 a:hover {
     color: #22c55e;
 }
+
+* {
+    font-family: aktiv-grotesk, sans-serif, helvetica, -apple-system,
+        BlinkMacSystemFont, "Open Sans", sans-serif, Oxygen, Ubuntu, Cantarell,
+        "Helvetica Neue";
+}

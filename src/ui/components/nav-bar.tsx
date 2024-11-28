@@ -19,6 +19,12 @@ const siteLinks: NavLink[] = [
         order: 1,
     },
     {
+        label: "Linkroll",
+        href: "/linkroll",
+        public: true,
+        order: 1,
+    },
+    {
         label: "Resume",
         href: "/resume",
         public: true,
