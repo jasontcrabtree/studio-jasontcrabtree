@@ -1,7 +1,7 @@
 import { getAllLinkrolls } from "@/lib/actions/linkroll-actions"
 import Link from "next/link"
 
-const user_logged_in = true
+// const user_logged_in = true
 
 const Linkroll = async () => {
     const links = await getAllLinkrolls()
