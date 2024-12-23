@@ -1,35 +1,41 @@
 import BlogPosts from "@/ui/components/blog-posts"
-import CommitTracker from "@/ui/components/commit-tracker/server"
 
-export default function Page() {
-    // const buckets = await listFilesInBucket({ bucketName: "mark-1-personal" })
-    // console.log(buckets)
-
+export default async function Page() {
     return (
-        <div className="w-full flex flex-col p-4">
-            <div className="w-[800px] mx-auto flex flex-col gap-8">
-                <div>
-                    <h1 className="font-semibold text-3xl pb-8">
-                        Hello, I'm Jason!
+        <div
+            className="mx-auto w-full max-w-[1280px] pb-16 pt-48 px-24 -mt-48 min-h-screen
+         dark:bg-black dark:text-white bg-gray-50 text-gray-950 flex flex-col items-center gap-12 vert-border"
+        >
+            <div className="flex md:flex-row gap-12 items-center w-full">
+                <div className="w-full h-80 bg-gray-600 rounded-sm flex-1"></div>
+                <div className="flex-1 w-full flex flex-col gap-2">
+                    <h1 className="text-3xl font-semibold">
+                        Title Case Page Title
                     </h1>
+                    <p>Intro paragraph one, about two sentences.</p>
+                    <p>Second intro, about three sentences</p>
                 </div>
+            </div>
 
-                <div>
-                    <h2 className="font-semibold text-xl">Projects</h2>
-                    <ul className="list-disc pl-4">
-                        <li>jasontcrabtree.com</li>
-                        <li>CRM Clone</li>
-                        <li>Visit Again</li>
-                        <li>Safe Midwife Coaching</li>
-                    </ul>
-                </div>
+            <div className="w-fit">
+                <h1 className="text-2xl font-bold text-emerald-600">
+                    Personal Projects
+                </h1>
+                <BlogPosts limit={3} />
+            </div>
 
-                <div>
-                    <h2 className="font-semibold text-xl">Blog</h2>
-                    <BlogPosts limit={4} />
-                </div>
+            <div className="w-fit">
+                <h1 className="text-2xl font-bold text-emerald-600">
+                    Interests & Goals
+                </h1>
+                <BlogPosts limit={3} />
+            </div>
 
-                <CommitTracker />
+            <div className="w-fit">
+                <h1 className="text-2xl font-bold text-emerald-600">
+                    Latest Blog Posts
+                </h1>
+                <BlogPosts limit={3} />
             </div>
         </div>
     )

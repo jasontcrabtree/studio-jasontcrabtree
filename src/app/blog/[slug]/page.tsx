@@ -24,7 +24,10 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
     }
 
     return (
-        <article className="w-full max-w-[64ch] mx-auto leading-normal flex flex-col gap-4">
+        <article
+            className="w-full max-w-[96ch] mx-auto leading-normal flex flex-col gap-4 dark:bg-black
+         dark:text-white bg-gray-50 text-gray-950 p-12"
+        >
             <h1>{post?.metadata.title}</h1>
             {post?.metadata.summary && post.metadata.summary}
 

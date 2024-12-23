@@ -1,25 +1,27 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-// import { cookies } from "next/headers"
+import { useState } from 'react'
 
-import "@/ui/globals.css"
-import NavBar from "@/ui/components/nav-bar"
-import Footer from "@/ui/components/footer"
-import AuthProvider from "@/ui/components/auth-provider"
+import '@/ui/globals.css'
+import NavBar from '@/ui/components/nav-bar'
+import Footer from '@/ui/components/footer'
+import PrivateProvider from '@/ui/components/auth-provider'
 
-const getAuthSession = async () => {
-    // const userToken = (await cookies()).get("crm-clone.token")?.value
-    const userToken = true
-    const x = true
-    return {
-        session: !!userToken,
-        user: {
-            // username: (await cookies()).get("crm-clone.username")?.value,
-            username: "Hello World",
-        },
-    }
-}
+import { Source_Serif_4 } from 'next/font/google'
+const sourceSerifPro = Source_Serif_4({ subsets: ['latin'] })
+
+// const getAuthSession = async () => {
+//     // const userToken = (await cookies()).get("crm-clone.token")?.value
+//     const userToken = true
+//     const x = true
+//     return {
+//         session: !!userToken,
+//         user: {
+//             // username: (await cookies()).get("crm-clone.username")?.value,
+//             username: "Hello World",
+//         },
+//     }
+// }
 
 export default function RootLayout({
     children,
@@ -29,16 +31,13 @@ export default function RootLayout({
     const userTime = new Date().getHours()
     const [darkMode, setDarkMode] = useState(userTime > 18) // Dark mode in spooky time (after 6pm)
 
-    // @ts-expect-error making auth work
-    const { session } = getAuthSession()
+    // const [session, setSession] = useState<PrivateProps | null>(null)
 
-    // if (session) {
-    //     console.log(session, user)
-    // }
+    //   const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
 
     return (
-        <AuthProvider session={session}>
-            <html lang="en" className={darkMode ? "dark" : ""}>
+        <PrivateProvider>
+            <html lang="en" className={darkMode ? 'dark' : ''}>
                 <head>
                     <title>Home</title>
                     <meta
@@ -52,13 +51,13 @@ export default function RootLayout({
                     ></link>
                 </head>
                 <body
-                    className={`antialiased bg-white dark:bg-black text-gray-800 dark:text-gray-100 min-h-screen text-pretty`}
+                    className={`antialiased bg-white dark:bg-gray-950  text-gray-800 dark:text-gray-100 min-h-screen text-pretty ${sourceSerifPro.className} overflow-y-scroll`}
                 >
                     <NavBar theme={darkMode} themeHandler={setDarkMode} />
                     <div className="w-full text-gray-800">{children}</div>
                     <Footer />
                 </body>
             </html>
-        </AuthProvider>
+        </PrivateProvider>
     )
 }

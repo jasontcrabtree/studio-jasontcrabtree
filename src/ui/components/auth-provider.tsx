@@ -1,30 +1,42 @@
-"use client"
+'use client'
 
-import { createContext } from "react"
+import React, {
+    createContext,
+    Dispatch,
+    SetStateAction,
+    useContext,
+    useState,
+} from 'react'
 
-export interface AuthProps {
+export interface PrivateContextProps {
     session: boolean
-    user?: {
-        username?: string
-        password?: string
-        email?: string
-        image?: string
-    }
+    setSession: Dispatch<SetStateAction<boolean>>
 }
 
-export interface AuthProviderProps {
+export interface PrivateProviderProps {
     children: React.ReactNode
-    session: AuthProps["session"]
 }
 
-export const AuthContext = createContext<AuthProps>({ session: false })
+const PrivateContext = createContext<PrivateContextProps | undefined>(undefined)
 
-const AuthProvider = ({ children, session }: AuthProviderProps) => {
+export const usePrivateContext = () => {
+    const context = useContext(PrivateContext)
+    if (!context) {
+        throw new Error(
+            'usePrivateContext must be used within a PrivateProvider'
+        )
+    }
+    return context
+}
+
+const PrivateProvider = ({ children }: PrivateProviderProps) => {
+    const [session, setSession] = useState<boolean>(false)
+
     return (
-        <AuthContext.Provider value={{ session }}>
+        <PrivateContext.Provider value={{ session, setSession }}>
             {children}
-        </AuthContext.Provider>
+        </PrivateContext.Provider>
     )
 }
 
-export default AuthProvider
+export default PrivateProvider

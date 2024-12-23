@@ -54,7 +54,7 @@ const SectionHeading = ({ label }: { label: string }) => {
 
 const Page = () => {
     return (
-        <div className="">
+        <div className="mx-auto w-full max-w-[1280px] pb-16 pt-48 px-24 -mt-48 min-h-screen dark:bg-black dark:text-white bg-gray-50 text-gray-950">
             <div className="max-w-[800px] mx-auto flex flex-col gap-8">
                 <div className="flex flex-row gap-4 items-center w-full">
                     <h1 className="font-bold text-2xl mr-auto">Resume</h1>

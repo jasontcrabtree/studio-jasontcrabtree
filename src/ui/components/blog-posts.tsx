@@ -34,11 +34,17 @@ const BlogPost = ({ metadata, slug }: Partial<BlogPostType>) => {
     )
 }
 
-const BlogPosts = ({ limit }: { limit: number }) => {
+const BlogPosts = ({
+    limit,
+    className,
+}: {
+    limit: number
+    className?: string
+}) => {
     const posts = getBlogPosts()
 
     return (
-        <ul className="flex flex-col gap-4">
+        <ul className={`flex flex-col gap-4 ${className}`}>
             {posts.slice(0, limit).map((post: BlogPostType, i) => {
                 return (
                     <BlogPost

@@ -4,18 +4,18 @@
 
 :root {
     --background: #ffffff;
-    --foreground: #171717;
+    --foreground: #0b0e29;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+        --background: #232529;
+        --foreground: #f5f6f6;
     }
 
     a,
     * {
-        color: #cbd5e1;
+        color: #f5f6f6;
     }
 }
 
@@ -26,11 +26,35 @@
 }
 
 a:hover {
-    color: #22c55e;
+    color: #234ae8;
 }
 
-* {
+p,
+li {
     font-family: aktiv-grotesk, sans-serif, helvetica, -apple-system,
         BlinkMacSystemFont, "Open Sans", sans-serif, Oxygen, Ubuntu, Cantarell,
         "Helvetica Neue";
+}
+
+.vert-border {
+    border-width: 1px;
+    border-style: dashed;
+    border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
+    border-bottom: 0;
+    border-top: 0;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    padding: 8px;
+
+    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+    --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }

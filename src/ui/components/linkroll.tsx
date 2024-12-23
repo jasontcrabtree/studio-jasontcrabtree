@@ -12,10 +12,13 @@ const Linkroll = async () => {
     }
 
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-2">
             {links.map((link, i) => {
                 return (
-                    <div key={i} className="p-2 bg-gray-100 w-full rounded-lg">
+                    <div
+                        key={i}
+                        className="px-2 py-4 dark:bg-gray-950 bg-gray-100 w-full rounded-lg"
+                    >
                         <Link
                             href={link.url}
                             target="_blank"
@@ -24,8 +27,12 @@ const Linkroll = async () => {
                             <span className="text-xs align-super">
                                 {link.url}
                             </span>
-                            {link.description && <div>{link.description} </div>}
                         </Link>
+                        {link.description && (
+                            <p className="text-xs break-before-all">
+                                {link.description}
+                            </p>
+                        )}
                     </div>
                 )
             })}
