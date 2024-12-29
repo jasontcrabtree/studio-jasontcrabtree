@@ -1,11 +1,11 @@
-import Linkroll from "@/ui/components/linkroll"
-import LinkrollInput from "@/ui/components/linkroll-input"
+import Linkroll from '@/ui/components/linkroll'
+import LinkrollInput from '@/ui/components/linkroll-input'
 
 const Page = () => {
     return (
         <main
             className="mx-auto w-full max-w-[1280px] pb-16 pt-48 px-24 -mt-48 min-h-screen
-         dark:bg-black dark:text-white bg-gray-50 text-gray-950 flex flex-col gap-4"
+         dark:bg-black dark:text-white bg-gray-50 text-gray-950 flex flex-col gap-4 vert-border"
         >
             <section className="flex flex-col gap-2">
                 <h1 className="font-bold text-3xl underline pb-4">Linkroll</h1>
@@ -17,11 +17,7 @@ const Page = () => {
                 </p>
             </section>
 
-            <div className="w-full h-[0.75px] bg-tml-red-300 px-12 opacity-40"></div>
-
             <LinkrollInput />
-
-            <div className="w-full h-[0.75px] bg-tml-red-300 px-12 opacity-40"></div>
 
             <Linkroll />
         </main>
