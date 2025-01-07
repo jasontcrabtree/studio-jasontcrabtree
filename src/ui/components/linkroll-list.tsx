@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 // const user_logged_in = true
 
-const Linkroll = async () => {
+const LinkrollList = async () => {
     const links = await getAllLinkrolls()
 
     if ('message' in links) {
@@ -17,7 +17,7 @@ const Linkroll = async () => {
                 return (
                     <div
                         key={i}
-                        className="p-6 dark:bg-gray-900 bg-gray-100 w-full rounded-lg flex flex-col gap-2"
+                        className="p-6 dark:bg-gray-800 bg-white shadow-sm w-full rounded-lg flex flex-col gap-2"
                     >
                         <Link
                             href={link.url}
@@ -29,7 +29,7 @@ const Linkroll = async () => {
                             </span>
                         </Link>
                         {link.description && (
-                            <p className="text-sm break-before-all dark:text-gray-300">
+                            <p className="text-sm break-before-all dark:text-gray-400">
                                 {link.description}
                             </p>
                         )}
@@ -40,4 +40,4 @@ const Linkroll = async () => {
     )
 }
 
-export default Linkroll
+export default LinkrollList

@@ -26,7 +26,7 @@ const siteLinks: NavLink[] = [
     },
     {
         label: 'Resume',
-        href: '/resume',
+        href: '/jason-crabtree-cv-2025.pdf',
         public: true,
         order: 0,
     },
@@ -42,7 +42,7 @@ const NavBar = ({
     links?: NavLink[]
 }) => {
     return (
-        <nav className="py-16 flex gap-4 items-start flex-col w-full max-w-[1280px] dark:text-zinc-300 text-zinc-700 mx-auto px-24 dark:bg-black dark:text-white bg-white text-gray-950">
+        <nav className="py-16 flex gap-4 items-start flex-col w-full max-w-[800px] dark:text-zinc-300 text-zinc-700 mx-auto dark:bg-black dark:text-white bg-white text-gray-950">
             <Link href="/" className="dark:text-zinc-300 text-zinc-700">
                 Jason Crabtree
                 <span className="text-xs dark:text-zinc-700 text-zinc-300">

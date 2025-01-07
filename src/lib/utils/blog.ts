@@ -1,20 +1,30 @@
-import { BlogMetaType, BlogPostType } from "@/ui/components/blog-posts"
-import fs from "fs"
-import path from "path"
+import { BlogMetaType, BlogPostType } from '@/ui/components/blog-posts'
+import fs from 'fs'
+import path from 'path'
 
 function parseFrontmatter(fileContent: string) {
     const frontmatterRegex = /---\s*([\s\S]*?)\s*---/
     const match = frontmatterRegex.exec(fileContent)
     const frontMatterBlock = match![1]
-    const body = fileContent.replace(frontmatterRegex, "").trim()
-    const frontMatterLines = frontMatterBlock.trim().split("\n")
+    const body = fileContent.replace(frontmatterRegex, '').trim()
+    const frontMatterLines = frontMatterBlock.trim().split('\n')
     const metadata: Partial<BlogMetaType> = {}
 
     frontMatterLines.forEach((line) => {
-        const [key, ...valueArr] = line.split(": ")
-        let value = valueArr.join(": ").trim()
-        value = value.replace(/^['"](.*)['"]$/, "$1") // Remove quotes
-        metadata[key.trim() as keyof BlogMetaType] = value
+        const [key, ...valueArr] = line.split(': ')
+        let value = valueArr.join(': ').trim()
+        value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
+
+        const trimmedKey = key.trim() as keyof BlogMetaType
+
+        metadata['wordcount'] = calculateTimeToRead(body).toString()
+
+        // Handle boolean values
+        if (trimmedKey === 'published') {
+            metadata[trimmedKey] = value.toLowerCase() === 'true'
+        } else {
+            metadata[trimmedKey] = value
+        }
     })
 
     return {
@@ -24,11 +34,11 @@ function parseFrontmatter(fileContent: string) {
 }
 
 function getMDXFiles(dir: fs.PathLike) {
-    return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx")
+    return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
 function readMDXFile(filePath: fs.PathOrFileDescriptor) {
-    const rawContent = fs.readFileSync(filePath, "utf-8")
+    const rawContent = fs.readFileSync(filePath, 'utf-8')
     return parseFrontmatter(rawContent)
 }
 
@@ -49,18 +59,18 @@ function getMDXData(dir: string): BlogPostType[] {
 
     return results.sort(
         (a, b) =>
-            new Date(b.metadata.published).getTime() -
-            new Date(a.metadata.published).getTime()
+            new Date(b.metadata.publishedDate).getTime() -
+            new Date(a.metadata.publishedDate).getTime()
     )
 }
 
 export function getBlogPosts() {
-    return getMDXData(path.join(process.cwd(), "writing", "blog-posts"))
+    return getMDXData(path.join(process.cwd(), 'writing', 'blog-posts'))
 }
 
 export function formatDate(date: string, includeRelative = false) {
     const currentDate = new Date()
-    if (!date.includes("T")) {
+    if (!date.includes('T')) {
         date = `${date}T00:00:00`
     }
     const targetDate = new Date(date)
@@ -69,7 +79,7 @@ export function formatDate(date: string, includeRelative = false) {
     const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
     const daysAgo = currentDate.getDate() - targetDate.getDate()
 
-    let formattedDate = ""
+    let formattedDate = ''
 
     if (yearsAgo > 0) {
         formattedDate = `${yearsAgo}y ago`
@@ -78,13 +88,13 @@ export function formatDate(date: string, includeRelative = false) {
     } else if (daysAgo > 0) {
         formattedDate = `${daysAgo}d ago`
     } else {
-        formattedDate = "Today"
+        formattedDate = 'Today'
     }
 
-    const fullDate = targetDate.toLocaleString("en-us", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
+    const fullDate = targetDate.toLocaleString('en-us', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
     })
 
     if (!includeRelative) {
@@ -92,4 +102,10 @@ export function formatDate(date: string, includeRelative = false) {
     }
 
     return `${fullDate} (${formattedDate})`
+}
+
+export function calculateTimeToRead(text: string): Number {
+    const numberWords = text.split(' ').length
+
+    return Math.ceil(numberWords / 225)
 }

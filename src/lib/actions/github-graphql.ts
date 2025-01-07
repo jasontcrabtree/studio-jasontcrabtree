@@ -64,7 +64,7 @@ const contributionDates = () => {
         prevMonthStart: prevMonthStart.toISOString(),
         prevMonthEnd: prevMonthEnd.toISOString(),
         yearStart: yearStart.toISOString(),
-        endpublished: today.toISOString(),
+        endpublishedDate: today.toISOString(),
     }
 }
 
@@ -72,17 +72,17 @@ export const fetchData = async (): Promise<
     GraphqlResponseType<ContributionDataType>
 > => {
     const GH_API_KEY = process.env.GH_PERSONAL_ACCESS_TOKEN_FINE_GRAINED
-    const API_URL = "https://api.github.com/graphql"
+    const API_URL = 'https://api.github.com/graphql'
 
     if (!GH_API_KEY) {
-        throw new Error("API key invalid")
+        throw new Error('API key invalid')
     }
 
     const options = {
-        method: "POST",
-        url: "https://api.github.com/graphql",
+        method: 'POST',
+        url: 'https://api.github.com/graphql',
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${GH_API_KEY}`,
         },
     }
@@ -99,7 +99,7 @@ export const fetchData = async (): Promise<
 
     if (!res.ok) {
         return {
-            message: "Error fetching contributions data",
+            message: 'Error fetching contributions data',
         }
     }
 
@@ -118,7 +118,7 @@ export const fetchCommitsAction = async (): Promise<
     }
 
     if (!res.data?.viewer) {
-        throw new Error("Unexpected error with no message")
+        throw new Error('Unexpected error with no message')
     }
 
     return res

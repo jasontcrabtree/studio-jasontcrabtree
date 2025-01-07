@@ -1,7 +1,7 @@
 ---
-published: 2024-05-02
-summary: ""
-title: ""
+publishedDate: 2024-05-02
+summary: ''
+title: ''
 # type: 'blog-post'
 ---
 

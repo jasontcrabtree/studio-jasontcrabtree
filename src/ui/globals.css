@@ -17,6 +17,14 @@
     * {
         color: #f5f6f6;
     }
+
+    .vert-border {
+        border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
+    }
+
+    .vert-border--reverse {
+        border-image: linear-gradient(to bottom, #0f172a, #475569) 1;
+    }
 }
 
 @layer utilities {
@@ -36,12 +44,20 @@ li {
         'Helvetica Neue';
 }
 
+* {
+    letter-spacing: 0.2px;
+}
+
 .vert-border {
     border-width: 1px;
     border-style: dashed;
-    border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
+    border-image: linear-gradient(to bottom, #0284c7, #bae6fd) 1;
     border-bottom: 0;
     border-top: 0;
+}
+
+.vert-border--reverse {
+    border-image: linear-gradient(to bottom, #bae6fd, #0284c7) 1;
 }
 
 label {
@@ -54,4 +70,8 @@ label {
     --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
         var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.dev {
+    outline: 1px solid hotpink;
 }
