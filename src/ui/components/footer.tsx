@@ -46,6 +46,7 @@ const Footer = () => {
                     width={240}
                     height={160}
                     className="aspect-auto rounded-xl"
+                    unoptimized
                 />
             </div>
         </footer>

@@ -1,5 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { calculateTimeToRead, getBlogPosts } from '@/lib/utils/blog'
+import { getBlogPosts } from '@/lib/utils/blog'
 
 export async function generateStaticParams() {
     const posts = getBlogPosts()

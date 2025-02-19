@@ -26,12 +26,12 @@ export default async function Page() {
                         of a team to make effective, scalable web applications.
                     </p>
                     <p>
-                        My perfect imaginary work day starts with building a new
-                        component from the design team. After finishing off the
-                        first version and my second coffee of the day, I revist
-                        old code to rewrite it for future use, improving it
-                        along the way. An invaluable lesson from an old boss,
-                        "use it 3 times, turn it.
+                        My perfect workday starts with building a new component
+                        from the design team. After finishing off the first
+                        version and my second coffee of the day, I revist old
+                        code to rewrite it for future use, improving it along
+                        the way. An invaluable lesson from an old boss, "use it
+                        3 times, turn it.
                     </p>
                 </div>
             </div>

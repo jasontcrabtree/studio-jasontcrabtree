@@ -104,7 +104,7 @@ export function formatDate(date: string, includeRelative = false) {
     return `${fullDate} (${formattedDate})`
 }
 
-export function calculateTimeToRead(text: string): Number {
+export function calculateTimeToRead(text: string): number {
     const numberWords = text.split(' ').length
 
     return Math.ceil(numberWords / 225)
