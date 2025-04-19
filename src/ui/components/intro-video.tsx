@@ -10,26 +10,26 @@ const Thumbnail = ({
 }) => {
     return (
         <div className="w-full aspect-video grid items-center justify-center grid-cols-3 grid-rows-1">
-            <p className="col-start-1 -col-end-1 row-start-1 z-20 h-fit w-fit mx-auto text-center bg-black bg-opacity-20 backdrop-blur justify-start mb-auto">
+            <p className="col-start-1 -col-end-1 row-start-1 z-20 h-fit w-fit mx-auto text-center bg-black bg-opacity-20 backdrop-blur-sm justify-start mb-auto">
                 #GoodToMeetYa
             </p>
             <p
-                className="col-start-1 col-end-2 row-start-1 -row-end-1 z-20 h-fit w-fit rotate-180 text-center bg-black bg-opacity-20 backdrop-blur"
+                className="col-start-1 col-end-2 row-start-1 -row-end-1 z-20 h-fit w-fit rotate-180 text-center bg-black bg-opacity-20 backdrop-blur-sm"
                 style={{ writingMode: 'vertical-lr' }}
             >
                 #CheesyElevatorPitchToStandOut
             </p>
             <p
-                className="-col-end-1 ml-auto row-start-1 -row-end-1 z-20 h-fit w-fit text-center bg-black bg-opacity-20 backdrop-blur"
+                className="-col-end-1 ml-auto row-start-1 -row-end-1 z-20 h-fit w-fit text-center bg-black bg-opacity-20 backdrop-blur-sm"
                 style={{ writingMode: 'vertical-rl' }}
             >
                 #CameraNatural
             </p>
-            <p className="col-start-1 -col-end-1 row-start-1 z-20 h-fit w-fit mx-auto text-center bg-black bg-opacity-20 backdrop-blur justify-end mt-auto">
+            <p className="col-start-1 -col-end-1 row-start-1 z-20 h-fit w-fit mx-auto text-center bg-black bg-opacity-20 backdrop-blur-sm justify-end mt-auto">
                 #HaveALittleFun
             </p>
             <button
-                className="col-start-1 -col-end-1 row-start-1 -row-end-1 z-20 mx-auto backdrop-blur-sm p-4 flex items-center justify-center bg-black bg-opacity-5 hover:bg-tml-blue-400 hover:bg-opacity-50 rounded-full"
+                className="col-start-1 -col-end-1 row-start-1 -row-end-1 z-20 mx-auto backdrop-blur-xs p-4 flex items-center justify-center bg-black bg-opacity-5 hover:bg-tml-blue-400 hover:bg-opacity-50 rounded-full"
                 onClick={() => {
                     videoHandler(true)
                 }}

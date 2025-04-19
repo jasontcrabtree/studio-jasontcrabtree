@@ -17,7 +17,7 @@ const LinkrollList = async () => {
                 return (
                     <div
                         key={i}
-                        className="p-6 dark:bg-gray-800 bg-white shadow-sm w-full rounded-lg flex flex-col gap-2"
+                        className="p-6 dark:bg-gray-800 bg-white shadow-xs w-full rounded-lg flex flex-col gap-2"
                     >
                         <Link
                             href={link.url}

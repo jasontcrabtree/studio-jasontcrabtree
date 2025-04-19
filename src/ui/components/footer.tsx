@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Footer = () => {
     return (
-        <footer className="mx-auto w-full max-w-[1280px] px-24 py-24 flex md:flex-row items-start justify-center gap-12 dark:bg-black bg-gray-50 vert-border vert-border--reverse text-black dark:text-white shadow border-opacity-50">
+        <footer className="mx-auto w-full max-w-[1280px] px-24 py-24 flex md:flex-row items-start justify-center gap-12 dark:bg-black bg-gray-50 vert-border vert-border--reverse text-black dark:text-white shadow-sm border-opacity-50">
             <div className="flex flex-col gap-4">
                 <h2 className="flex flex-row gap-2 items-center text-xl font-semibold max-w-[240px]">
                     Wanna be penpals? <Mailbox size={20} />

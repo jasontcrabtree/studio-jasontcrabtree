@@ -24,8 +24,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 To learn more about Next.js, take a look at the following resources:
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
@@ -53,3 +53,29 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 // Squirrel,
 // Sailboat,
 // } from "lucide-react"
+
+# Plan for build out project
+
+- [ ] Homepage layout
+- [ ] FEATURES
+  - [ ] Darkmode toggle
+  - [ ] GitHub integration showing commits per week for personal accountability
+  - [ ] Blog (md + postgres) + template
+  - [ ] Links roll
+  - [ ] Code snippets list
+  - [ ] Pictures with s3 storage
+  - [ ] Comments / Q&A feature
+  - [ ] Projects page + template (md, custom layout)
+  - [ ] Nested posters content
+  - [ ] Authentication so I can log in to publish/author have a different experience
+- [ ] TESTS
+  - [x] Darkmode toggle
+  - [ ] GitHub integration showing commits per week for personal accountability
+  - [ ] Blog (md + postgres) + template
+  - [ ] Links roll
+  - [ ] Code snippets list
+  - [ ] Pictures with s3 storage
+  - [ ] Comments / Q&A feature
+  - [ ] Projects page + template (md, custom layout)
+  - [ ] Nested posters content
+  - [ ] Authentication so I can log in to publish/author have a different experience

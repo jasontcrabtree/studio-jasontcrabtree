@@ -22,7 +22,7 @@ const LinkrollInput = () => {
     console.log('session', session)
 
     return (
-        <div className="flex flex-col w-full gap-4 p-2 text-sm rounded shadow">
+        <div className="flex flex-col w-full gap-4 p-2 text-sm rounded-sm shadow-sm">
             <label
                 htmlFor="link"
                 className="flex flex-col items-start gap-1 w-full"
@@ -34,7 +34,7 @@ const LinkrollInput = () => {
                     type="url"
                     name="link"
                     id="link"
-                    className="dark:bg-gray-950 dark:text-gray-300 py-4 px-4 w-full shadow-inner border border-gray-600 rounded"
+                    className="dark:bg-gray-950 dark:text-gray-300 py-4 px-4 w-full shadow-inner border border-gray-600 rounded-sm"
                     onChange={(e) =>
                         setLinkroll({
                             ...linkroll,
@@ -50,7 +50,7 @@ const LinkrollInput = () => {
                 <span className="font-semibold">Description</span>
                 <textarea
                     name="logbookEntry"
-                    className="rounded w-full dark:bg-gray-950 p-4 border border-gray-600 shadow-inner"
+                    className="rounded-sm w-full dark:bg-gray-950 p-4 border border-gray-600 shadow-inner"
                     rows={3}
                     placeholder="Remind me ..."
                     onChange={(e) =>
@@ -100,7 +100,7 @@ const LinkrollInput = () => {
                 </label>
                 <button
                     disabled={linkroll.url === ''}
-                    className="bg-grey-700 hover:bg-gray-500 text-white rounded max-h-[40px] py-2 ml-auto font-semibold px-8 w-fit flex flex-row gap-4 items-center disabled:cursor-not-allowed bg-tml-blue-400"
+                    className="bg-grey-700 hover:bg-gray-500 text-white rounded-sm max-h-[40px] py-2 ml-auto font-semibold px-8 w-fit flex flex-row gap-4 items-center disabled:cursor-not-allowed bg-tml-blue-400"
                     onClick={async () => {
                         await saveLinkroll(linkroll)
                     }}

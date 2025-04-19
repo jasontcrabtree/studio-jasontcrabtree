@@ -17,12 +17,12 @@ const ContactInfo = ({ className }: { className: string }) => {
         <section className={`${className} text-sm w-full dark:text-gray-100`}>
             <SectionHeading label="Contact Information" />
             <div className="grid md:grid-cols-6 gap-4">
-                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded py-5 font-medium items-center justify-center col-span-3">
+                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-3">
                     <Globe size={24} />
                     Auckland, New Zealand
                 </span>
 
-                <div className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded font-medium items-center justify-center hover:cursor-pointer col-span-3">
+                <div className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm font-medium items-center justify-center hover:cursor-pointer col-span-3">
                     {!isEmailVisible && (
                         <button
                             className="flex flex-row items-center justify-center gap-2 py-5 hover:bg-tml-blue-400 w-full"
@@ -38,14 +38,14 @@ const ContactInfo = ({ className }: { className: string }) => {
                     {isEmailVisible && (
                         <a
                             href="mailto:jasontcrabtree@gmail.com"
-                            className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded p-1 py-3 font-medium items-center justify-center hover:cursor-pointer"
+                            className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm p-1 py-3 font-medium items-center justify-center hover:cursor-pointer"
                         >
                             <Mailbox size={24} />
                             jasontcrabtree@gmail.com
                         </a>
                     )}
                 </div>
-                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded py-5 font-medium items-center justify-center col-span-2">
+                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
                     <Link
                         href="https://github.com/jasontcrabtree"
                         className="flex flex-row gap-2 items-center"
@@ -66,7 +66,7 @@ const ContactInfo = ({ className }: { className: string }) => {
                         GitHub
                     </Link>
                 </span>
-                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded py-5 font-medium items-center justify-center col-span-2">
+                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
                     <Link
                         href="https://jasontcrabtree.com"
                         className="flex flex-row gap-1 items-center"
@@ -75,7 +75,7 @@ const ContactInfo = ({ className }: { className: string }) => {
                         Website
                     </Link>
                 </span>
-                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded py-5 font-medium items-center justify-center col-span-2">
+                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
                     <Link
                         href="https://www.linkedin.com/in/jasontcrabtree/"
                         className="flex flex-row gap-3 items-center"
@@ -128,7 +128,7 @@ const Page = () => {
                     <h1 className="font-bold text-2xl mr-auto">Resume</h1>
                     <p className="text-gray-700 text-sm">Updated: 29/12/2024</p>
                     <a
-                        className="text-sm font-bold p-2 bg-blue-600 hover:text-white rounded text-white flex flex-row gap-2 px-4 items-center"
+                        className="text-sm font-bold p-2 bg-blue-600 hover:text-white rounded-sm text-white flex flex-row gap-2 px-4 items-center"
                         href="/jason-crabtree-cv.pdf"
                         target="_blank"
                         rel="noopener noreferrer"

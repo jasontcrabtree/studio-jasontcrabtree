@@ -27,14 +27,14 @@ const PublicSession = ({
                     type="url"
                     name="link"
                     id="link"
-                    className="dark:bg-black dark:text-gray-300 px-2 py-1 w-full max-w-[40ch] border rounded"
+                    className="dark:bg-black dark:text-gray-300 px-2 py-1 w-full max-w-[40ch] border rounded-sm"
                     onChange={async (e) => {
                         setInsecurePin(e.target.value)
                     }}
                 />
 
                 <button
-                    className="italic text-xs text-tml-red-400 border border-tml-red-400 px-8 rounded py-2"
+                    className="italic text-xs text-tml-red-400 border border-tml-red-400 px-8 rounded-sm py-2"
                     onClick={async () => {
                         sessionHandler(await checkInSecurePin(insecurePin))
                     }}

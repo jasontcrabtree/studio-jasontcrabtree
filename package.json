@@ -22,6 +22,7 @@
         "react-dom": "^18"
     },
     "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.4",
         "@types/node": "^22.7.7",
         "@types/react": "^18",
         "@types/react-dom": "^18.3.1",
@@ -29,12 +30,35 @@
         "eslint": "^9.13.0",
         "eslint-config-next": "^15.0.3",
         "postcss": "^8",
-        "tailwindcss": "^3.4.14",
+        "tailwindcss": "^4.1.4",
         "typescript": "^5"
     },
     "overrides": {
         "eslint-config-next": {
             "eslint": "^9.13.0"
+        }
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    },
+    "eslintConfig": {
+        "extends": [
+            "next/core-web-vitals",
+            "next/typescript"
+        ],
+        "rules": {
+            "react/no-unescaped-entities": "off",
+            "@typescript-eslint/no-unused-vars": "warn",
+            "@typescript-eslint/no-unused-expressions": [
+                "error",
+                {
+                    "allowShortCircuit": true,
+                    "allowTernary": true
+                }
+            ]
         }
     }
 }

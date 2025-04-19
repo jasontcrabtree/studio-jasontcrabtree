@@ -1,35 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-    --background: #ffffff;
-    --foreground: #0b0e29;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-transparent: transparent;
+    --color-current: currentColor;
+
+    --color-tml-blue-200: #4a7abd;
+    --color-tml-blue-400: #234ae8;
+    --color-tml-blue-600: #0022a2;
+    --color-tml-blue-700: #2d3b70;
+    --color-tml-blue-800: #031235;
+    --color-tml-gold-300: #f4a82e;
+    --color-tml-gold-400: #f06d1b;
+    --color-tml-red-300: #d73260;
+    --color-tml-red-400: #ab1a25;
+    --color-tml-red-500: #8d0d30;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #232529;
-        --foreground: #f5f6f6;
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
     }
+}
 
-    a,
-    * {
-        color: #f5f6f6;
-    }
-
-    .vert-border {
-        border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
-    }
-
-    .vert-border--reverse {
-        border-image: linear-gradient(to bottom, #0f172a, #475569) 1;
-    }
+@utility text-balance {
+    text-wrap: balance;
 }
 
 @layer utilities {
-    .text-balance {
-        text-wrap: balance;
+    :root {
+        --background: #ffffff;
+        --foreground: #0b0e29;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --background: #232529;
+            --foreground: #f5f6f6;
+        }
+
+        a,
+        * {
+            color: #f5f6f6;
+        }
+
+        .vert-border {
+            border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
+        }
+
+        .vert-border--reverse {
+            border-image: linear-gradient(to bottom, #0f172a, #475569) 1;
+        }
     }
 }
 
