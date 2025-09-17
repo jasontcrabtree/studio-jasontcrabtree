@@ -1,5 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getBlogPosts } from '@/lib/utils/blog'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 
 export async function generateStaticParams() {
     const posts = getBlogPosts()
@@ -24,16 +26,20 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         return null
     }
 
-    // <div className="flex flex-col mx-auto w-full max-w-[1280px] vert-border pb-12 px-24 pt-48 -mt-48 min-h-screen dark:bg-black dark:text-white bg-gray-50 text-gray-950 items-center">
-
     return (
         <article
             className="w-full max-w-[1280px] mx-auto leading-normal
-         dark:text-white text-gray-950 vert-border flex flex-col vert-border pb-12 px-24 pt-48 -mt-48 min-h-screen dark:bg-black bg-gray-50"
+          text-gray-950 vert-border flex flex-col vert-border pb-12 px-24 pt-48 -mt-48 min-h-screen  bg-gray-50"
         >
             <div className="max-w-[800px] w-full flex flex-col gap-6 mx-auto">
+                <Link
+                    href="/"
+                    className="text-tml-blue-600 flex flex-row gap-1 items-center"
+                >
+                    <ArrowLeft size={16} /> Return to blog
+                </Link>
                 <section className="">
-                    <h1 className="text-tml-blue-400 dark:text-emerald-300">
+                    <h1 className="text-tml-blue-400 ">
                         {post?.metadata.title}
                     </h1>
                     <div className="flex flex-row items-center gap-2">

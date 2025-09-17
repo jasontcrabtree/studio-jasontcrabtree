@@ -1,8 +1,6 @@
 'use client'
 
 import Link, { LinkProps } from 'next/link'
-import DarkModeControl from './dark-mode-control'
-import { Dispatch, SetStateAction } from 'react'
 
 interface NavLink extends LinkProps {
     label: string
@@ -21,7 +19,7 @@ const siteLinks: NavLink[] = [
     {
         label: 'Linkroll',
         href: '/linkroll',
-        public: true,
+        public: false,
         order: 1,
     },
     {
@@ -33,19 +31,19 @@ const siteLinks: NavLink[] = [
 ]
 
 const NavBar = ({
-    theme,
-    themeHandler,
+    // theme,
+    // themeHandler,
     links = siteLinks,
 }: {
-    theme: boolean
-    themeHandler: Dispatch<SetStateAction<boolean>>
+    // theme: boolean
+    // themeHandler: Dispatch<SetStateAction<boolean>>
     links?: NavLink[]
 }) => {
     return (
-        <nav className="py-16 flex gap-4 items-start flex-col w-full max-w-[800px] dark:text-zinc-300 text-zinc-700 mx-auto dark:bg-black dark:text-white bg-white text-gray-950">
-            <Link href="/" className="dark:text-zinc-300 text-zinc-700">
-                Jason Crabtree
-                <span className="text-xs dark:text-zinc-700 text-zinc-300">
+        <nav className="py-16 flex flex-row gap-4 justify-between w-full max-w-[800px] mx-auto bg-white text-gray-950">
+            <Link href="/" className="text-zinc-700">
+                jasontcrabtree.com
+                <span className="text-xs text-zinc-500">
                     {' '}
                     est. 2018 - {new Date().getFullYear()}
                 </span>
@@ -53,6 +51,7 @@ const NavBar = ({
             <div className="flex gap-4 items-center text-sm">
                 {links
                     .sort((a, b) => a.order - b.order)
+                    .filter((a) => a.public === true)
                     .map((link, i) => {
                         return (
                             <Link href={link.href} key={i}>
@@ -60,7 +59,6 @@ const NavBar = ({
                             </Link>
                         )
                     })}
-                <DarkModeControl darkMode={theme} handler={themeHandler} />
             </div>
         </nav>
     )

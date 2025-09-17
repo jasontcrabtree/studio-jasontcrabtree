@@ -15,7 +15,7 @@ const PublicSession = ({
     return (
         <main
             className="mx-auto w-full max-w-[1280px] pb-16 pt-48 px-24 -mt-48 min-h-screen
-         dark:bg-black dark:text-white bg-gray-50 text-gray-950 flex flex-col gap-4"
+          bg-gray-50 text-gray-950 flex flex-col gap-4"
         >
             <div className="flex flex-row gap-4 items-center justify-center w-full py-4">
                 <p className="italic text-xs">
@@ -27,7 +27,7 @@ const PublicSession = ({
                     type="url"
                     name="link"
                     id="link"
-                    className="dark:bg-black dark:text-gray-300 px-2 py-1 w-full max-w-[40ch] border rounded-sm"
+                    className="px-2 py-1 w-full max-w-[40ch] border rounded-sm"
                     onChange={async (e) => {
                         setInsecurePin(e.target.value)
                     }}
@@ -54,10 +54,7 @@ const Page = () => {
     }
 
     return (
-        <main
-            className="mx-auto w-full max-w-[1280px] pb-16 pt-48 px-24 -mt-48 min-h-screen
-         dark:bg-black dark:text-white bg-gray-50 text-gray-950 flex flex-col gap-4"
-        >
+        <main className="mx-auto w-full max-w-[1280px] pb-16 pt-48 px-24 -mt-48 min-h-screen bg-gray-50 text-gray-950 flex flex-col gap-4">
             <h1>Hello Jason, welcome in.</h1>
         </main>
     )

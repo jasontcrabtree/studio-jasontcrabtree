@@ -14,15 +14,15 @@ const ContactInfo = ({ className }: { className: string }) => {
     const [isEmailVisible, setIsEmailVisibile] = useState(false)
 
     return (
-        <section className={`${className} text-sm w-full dark:text-gray-100`}>
+        <section className={`${className} text-sm w-full`}>
             <SectionHeading label="Contact Information" />
             <div className="grid md:grid-cols-6 gap-4">
-                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-3">
+                <span className="flex flex-row gap-3 bg-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-3">
                     <Globe size={24} />
                     Auckland, New Zealand
                 </span>
 
-                <div className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm font-medium items-center justify-center hover:cursor-pointer col-span-3">
+                <div className="flex flex-row gap-3 bg-gray-200 rounded-sm font-medium items-center justify-center hover:cursor-pointer col-span-3">
                     {!isEmailVisible && (
                         <button
                             className="flex flex-row items-center justify-center gap-2 py-5 hover:bg-tml-blue-400 w-full"
@@ -38,14 +38,14 @@ const ContactInfo = ({ className }: { className: string }) => {
                     {isEmailVisible && (
                         <a
                             href="mailto:jasontcrabtree@gmail.com"
-                            className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm p-1 py-3 font-medium items-center justify-center hover:cursor-pointer"
+                            className="flex flex-row gap-3 bg-gray-200 rounded-sm p-1 py-3 font-medium items-center justify-center hover:cursor-pointer"
                         >
                             <Mailbox size={24} />
                             jasontcrabtree@gmail.com
                         </a>
                     )}
                 </div>
-                <span className="flex flex-row gap-1 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
+                <span className="flex flex-row gap-1 bg-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
                     <Link
                         href="https://github.com/jasontcrabtree"
                         className="flex flex-row gap-2 items-center"
@@ -66,7 +66,7 @@ const ContactInfo = ({ className }: { className: string }) => {
                         GitHub
                     </Link>
                 </span>
-                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
+                <span className="flex flex-row gap-3 bg-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
                     <Link
                         href="https://jasontcrabtree.com"
                         className="flex flex-row gap-1 items-center"
@@ -75,7 +75,7 @@ const ContactInfo = ({ className }: { className: string }) => {
                         Website
                     </Link>
                 </span>
-                <span className="flex flex-row gap-3 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
+                <span className="flex flex-row gap-3 bg-gray-200 rounded-sm py-5 font-medium items-center justify-center col-span-2">
                     <Link
                         href="https://www.linkedin.com/in/jasontcrabtree/"
                         className="flex flex-row gap-3 items-center"
@@ -122,7 +122,7 @@ const SectionHeading = ({ label }: { label: string }) => {
 
 const Page = () => {
     return (
-        <div className="mx-auto w-full max-w-[1280px] pb-16 vert-border pt-48 px-24 -mt-48 min-h-screen dark:bg-black dark:text-white bg-gray-50 text-gray-950">
+        <div className="mx-auto w-full max-w-[1280px] pb-16 vert-border pt-48 px-24 -mt-48 min-h-screen-gray-50 text-gray-950">
             <div className="max-w-[800px] mx-auto flex flex-col gap-8">
                 <div className="flex flex-row gap-4 items-center w-full">
                     <h1 className="font-bold text-2xl mr-auto">Resume</h1>

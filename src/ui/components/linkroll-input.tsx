@@ -34,7 +34,7 @@ const LinkrollInput = () => {
                     type="url"
                     name="link"
                     id="link"
-                    className="dark:bg-gray-950 dark:text-gray-300 py-4 px-4 w-full shadow-inner border border-gray-600 rounded-sm"
+                    className="py-4 px-4 w-full shadow-inner border border-gray-600 rounded-sm"
                     onChange={(e) =>
                         setLinkroll({
                             ...linkroll,
@@ -50,7 +50,7 @@ const LinkrollInput = () => {
                 <span className="font-semibold">Description</span>
                 <textarea
                     name="logbookEntry"
-                    className="rounded-sm w-full dark:bg-gray-950 p-4 border border-gray-600 shadow-inner"
+                    className="rounded-sm w-full p-4 border border-gray-600 shadow-inner"
                     rows={3}
                     placeholder="Remind me ..."
                     onChange={(e) =>

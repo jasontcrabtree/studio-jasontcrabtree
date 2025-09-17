@@ -24,15 +24,15 @@ const BlogPost = ({ metadata, slug }: Partial<BlogPostType>) => {
     }
 
     return (
-        <li className="list-none px-8 py-4 bg-white dark:bg-gray-800 flex flex-col gap-1">
+        <li className="list-none px-8 py-4 bg-white flex flex-col gap-1 border rounded">
             <Link
-                className="dark:text-gray-100 text-gray-700 cursor-pointer dark:hover:text-green-500 text-semibold"
+                className="text-gray-700 cursor-pointer  text-semibold"
                 href={`/blog/${slug}`}
             >
                 {metadata.title}
             </Link>
 
-            <div className="flex flex-row items-center gap-2 text-gray-500 dark:text-gray-400 ">
+            <div className="flex flex-row items-center gap-2 text-gray-500">
                 {metadata.wordcount && (
                     <>
                         <p className="flex flex-row gap-1 items-center">

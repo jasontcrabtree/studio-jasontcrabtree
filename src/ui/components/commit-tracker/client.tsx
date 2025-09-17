@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { ContributionDataType } from "@/lib/actions/github-graphql"
+import { ContributionDataType } from '@/lib/actions/github-graphql'
 
 export type Include = {
     week: boolean
@@ -28,16 +28,12 @@ const ClientComponent = ({ data }: { data: ContributionDataType }) => {
         node.contributionsThisYear.weekContributions.totalContributions
 
     return (
-        <div
-            className={`${
-                bg && "dark:bg-zinc-900 bg-zinc-200"
-            } dark:text-zinc-100 text-zinc-950 w-fit p-2`}
-        >
+        <div className={`${bg && 'bg-zinc-200'}  text-zinc-950 w-fit p-2`}>
             {inclusions.week && (
                 <p className="">
                     {weekNum}
                     <span className="tabular-nums">/</span>
-                    {goal}wk{" "}
+                    {goal}wk{' '}
                     <span className="font-normal text-xs">
                         ({Math.round((weekNum / goal) * 100)}
                         %)

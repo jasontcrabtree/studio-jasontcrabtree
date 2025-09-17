@@ -2,9 +2,9 @@ import BlogPosts from '@/ui/components/blog-posts'
 
 export default function Page() {
     return (
-        <div className="flex flex-col mx-auto w-full max-w-[1280px] vert-border pb-12 px-24 pt-48 -mt-48 min-h-screen dark:bg-black dark:text-white bg-gray-50 text-gray-950 items-center">
+        <div className="flex flex-col mx-auto w-full max-w-[1280px] vert-border pb-12 px-24 pt-48 -mt-48 min-h-screen bg-gray-50 text-gray-950 items-center">
             <div className="flex flex-col gap-4">
-                <section className="p-8 max-w-[800px] w-full bg-tml-blue-700 text-gray-100 rounded-sm flex flex-col gap-2">
+                <section className="p-8 max-w-[800px] w-full bg-tml-blue-600 text-gray-100 rounded-xl flex flex-col gap-2">
                     <h1 className="text-white">Personal blog</h1>
                     <p className="max-w-[800px]">
                         Welcome to my blog! I try to write about things I'm

@@ -40,24 +40,12 @@
         --foreground: #0b0e29;
     }
 
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --background: #232529;
-            --foreground: #f5f6f6;
-        }
+    .vert-border {
+        border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
+    }
 
-        a,
-        * {
-            color: #f5f6f6;
-        }
-
-        .vert-border {
-            border-image: linear-gradient(to bottom, #475569, #0f172a) 1;
-        }
-
-        .vert-border--reverse {
-            border-image: linear-gradient(to bottom, #0f172a, #475569) 1;
-        }
+    .vert-border--reverse {
+        border-image: linear-gradient(to bottom, #0f172a, #475569) 1;
     }
 }
 
@@ -94,10 +82,10 @@ label {
     gap: 8px;
     align-items: flex-start;
 
-    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+    /* --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
     --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
 }
 
 .dev {

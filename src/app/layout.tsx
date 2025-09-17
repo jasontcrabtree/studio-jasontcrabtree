@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-
 import '@/ui/globals.css'
 import NavBar from '@/ui/components/nav-bar'
 import Footer from '@/ui/components/footer'
@@ -15,12 +13,9 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    const userTime = new Date().getHours()
-    const [darkMode, setDarkMode] = useState(userTime > 18) // Dark mode in spooky time (after 6pm)
-
     return (
         <PrivateProvider>
-            <html lang="en" className={darkMode ? 'dark' : ''}>
+            <html lang="en" className={''}>
                 <head>
                     <title>Home</title>
                     <meta
@@ -34,9 +29,9 @@ export default function RootLayout({
                     ></link>
                 </head>
                 <body
-                    className={`antialiased bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-100 min-h-screen text-pretty ${sourceSerifPro.className} overflow-y-scroll`}
+                    className={`antialiased bg-white  text-gray-800  min-h-screen text-pretty ${sourceSerifPro.className} overflow-y-scroll`}
                 >
-                    <NavBar theme={darkMode} themeHandler={setDarkMode} />
+                    <NavBar />
                     <div className="w-full text-gray-800">{children}</div>
                     <Footer />
                 </body>

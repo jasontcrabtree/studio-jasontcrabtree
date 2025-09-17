@@ -1,45 +1,45 @@
-import {
-    GetObjectCommand,
-    ListObjectsCommand,
-    S3Client,
-    ListObjectsCommandOutput,
-} from '@aws-sdk/client-s3'
-import { AwsCredentialIdentity } from '@aws-sdk/types'
+// import {
+//     GetObjectCommand,
+//     ListObjectsCommand,
+//     S3Client,
+//     ListObjectsCommandOutput,
+// } from '@aws-sdk/client-s3'
+// import { AwsCredentialIdentity } from '@aws-sdk/types'
 
-const s3Instance = new S3Client({
-    region: process.env.AWS_REGION,
-    credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
-    } as AwsCredentialIdentity,
-})
+// const s3Instance = new S3Client({
+//     region: process.env.AWS_REGION,
+//     credentials: {
+//         accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+//         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+//     } as AwsCredentialIdentity,
+// })
 
-export const listFilesInBucket = async ({
-    bucketName,
-}: {
-    bucketName: string
-}) => {
-    const command = new ListObjectsCommand({ Bucket: bucketName })
-    const { Contents }: ListObjectsCommandOutput = await s3Instance.send(
-        command
-    )
+// export const listFilesInBucket = async ({
+//     bucketName,
+// }: {
+//     bucketName: string
+// }) => {
+//     const command = new ListObjectsCommand({ Bucket: bucketName })
+//     const { Contents }: ListObjectsCommandOutput = await s3Instance.send(
+//         command
+//     )
 
-    if (!Contents) {
-        console.log('\nNo files found in the bucket.\n')
-        return
-    }
+//     if (!Contents) {
+//         console.log('\nNo files found in the bucket.\n')
+//         return
+//     }
 
-    const contentsList = Contents.map((c) => ` • ${c.Key}`).join('\n')
+//     const contentsList = Contents.map((c) => ` • ${c.Key}`).join('\n')
 
-    return contentsList
-}
+//     return contentsList
+// }
 
-export const getObjectInfo = async () => {
-    const response = await s3Instance.send(
-        new GetObjectCommand({
-            Bucket: process.env.AWS_BUCKET_NAME,
-            Key: 'matthew-buchanan-ZTXr4ObIuOw-unsplash.jpg',
-        })
-    )
-    console.log(response)
-}
+// export const getObjectInfo = async () => {
+//     const response = await s3Instance.send(
+//         new GetObjectCommand({
+//             Bucket: process.env.AWS_BUCKET_NAME,
+//             Key: 'matthew-buchanan-ZTXr4ObIuOw-unsplash.jpg',
+//         })
+//     )
+//     console.log(response)
+// }

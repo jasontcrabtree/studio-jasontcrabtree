@@ -17,19 +17,17 @@ const LinkrollList = async () => {
                 return (
                     <div
                         key={i}
-                        className="p-6 dark:bg-gray-800 bg-white shadow-xs w-full rounded-lg flex flex-col gap-2"
+                        className="p-6 bg-white shadow-xs w-full rounded-lg flex flex-col gap-2"
                     >
                         <Link
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <span className="dark:text-gray-100">
-                                {link.url}
-                            </span>
+                            <span className="">{link.url}</span>
                         </Link>
                         {link.description && (
-                            <p className="text-sm break-before-all dark:text-gray-400">
+                            <p className="text-sm break-before-all">
                                 {link.description}
                             </p>
                         )}
