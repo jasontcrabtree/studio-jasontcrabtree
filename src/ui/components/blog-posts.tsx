@@ -67,7 +67,10 @@ const BlogPosts = ({
     })
 
     return (
-        <ul className={`flex flex-col gap-4 p-0 ${className}`}>
+        <ul
+            className={`flex flex-col gap-4 p-0 ${className}`}
+            style={{ paddingInlineStart: 0 }}
+        >
             {publishedPosts.slice(0, limit).map((post: BlogPostType, i) => {
                 return (
                     <BlogPost

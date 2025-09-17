@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 const Footer = () => {
     return (
-        <footer className="mx-auto w-full max-w-[1280px] px-24 py-24 flex bg-gray-50 vert-border vert-border--reverse text-black shadow-lg border-opacity-50">
-            <div className="w-full max-w-[800px] mx-auto flex flex-row items-start justify-between gap-12 display-none">
-                <div className="flex flex-col gap-4 flex-2">
+        <footer className="mx-auto w-full max-w-[1280px] px-24 pb-24 flex bg-gray-50 vert-border vert-border--reverse text-black shadow-lg border-opacity-50">
+            <div className="w-full max-w-[800px] mx-auto flex flex-row items-start justify-start gap-12">
+                <div className="flex-col gap-4 flex-2 hidden">
                     <h2 className="flex flex-row gap-2 items-center text-xl font-semibold max-w-[260px]">
                         Wanna be penpals? <Mailbox size={20} />
                     </h2>
@@ -36,7 +36,7 @@ const Footer = () => {
                         </button>
                     </form>
                 </div>
-                <div className="flex flex-col gap-4 flex-1 items-center h-full justify-start">
+                <div className="flex flex-col gap-4 flex-1 h-full justify-start">
                     <div className="">
                         <p>Thanks for visiting! Bye for now!</p>
                         <p className="text-xs">
