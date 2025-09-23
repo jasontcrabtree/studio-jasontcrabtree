@@ -3,6 +3,15 @@ import Image from 'next/image'
 
 import { ExternalLink } from 'lucide-react'
 
+type Project = {
+    link: string
+    title: string
+    description: string
+    technologies: string
+    codeSrc?: string
+    imageSrc?: string
+}
+
 const ProjectItem = ({
     link,
     title,
@@ -10,14 +19,7 @@ const ProjectItem = ({
     technologies,
     codeSrc,
     imageSrc,
-}: {
-    link: string
-    title: string
-    description: string
-    technologies: string
-    codeSrc?: string
-    imageSrc?: string
-}) => {
+}: Project) => {
     return (
         <li className="border rounded shadow-xs md:p-4 md:py-8 p-4 gap-4 flex flex-col bg-white">
             <a href={link} className="flex flex-col gap-2">
@@ -49,7 +51,7 @@ const ProjectItem = ({
     )
 }
 
-function CaseStudies({ projects }: { projects: any[] }) {
+function CaseStudies({ projects }: { projects: Project[] }) {
     return (
         <ul className="grid md:grid-cols-3 gap-2 w-full md:p-0 ps-0">
             {projects.map((project, index) => (
