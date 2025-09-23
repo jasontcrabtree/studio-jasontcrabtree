@@ -24,7 +24,7 @@ const BlogPost = ({ metadata, slug }: Partial<BlogPostType>) => {
     }
 
     return (
-        <li className="list-none px-8 py-4 bg-white flex flex-col gap-1 border rounded">
+        <li className="list-none px-8 py-4 bg-white flex flex-col gap-1 border rounded shadow-xs">
             <Link
                 className="text-gray-700 cursor-pointer  text-semibold"
                 href={`/blog/${slug}`}

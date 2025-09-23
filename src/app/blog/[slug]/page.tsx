@@ -29,7 +29,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
     return (
         <article
             className="w-full max-w-[1280px] mx-auto leading-normal
-          text-gray-950 vert-border flex flex-col vert-border pb-12 px-24 pt-48 -mt-48 min-h-screen  bg-gray-50"
+          text-gray-950 vert-border flex flex-col vert-border md:pb-12 md:px-24 p-6 pt-40 -mt-40 min-h-screen  bg-gray-50"
         >
             <div className="max-w-[800px] w-full flex flex-col gap-6 mx-auto">
                 <Link

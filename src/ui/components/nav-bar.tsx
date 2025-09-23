@@ -40,7 +40,7 @@ const NavBar = ({
     links?: NavLink[]
 }) => {
     return (
-        <nav className="py-16 flex flex-row gap-4 justify-between w-full max-w-[800px] mx-auto bg-white text-gray-950">
+        <nav className="sm:px-6 md:py-16 lg:px-0 p-6 flex flex-row gap-4 justify-between w-full max-w-[800px] mx-auto bg-white text-gray-950">
             <Link href="/" className="text-zinc-700">
                 jasontcrabtree.com
                 <span className="text-xs text-zinc-500">

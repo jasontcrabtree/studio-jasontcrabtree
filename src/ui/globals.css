@@ -60,6 +60,10 @@ li {
         'Helvetica Neue';
 }
 
+ul {
+    padding-inline-start: 0;
+}
+
 * {
     letter-spacing: 0.2px;
 }

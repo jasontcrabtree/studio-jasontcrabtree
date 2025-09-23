@@ -45,7 +45,6 @@ const Footer = () => {
                         </p>
                     </div>
                     <Image
-                        // src="https://res.cloudinary.com/jasontcrabtree/image/upload/v1734860469/jasontcrabtree-v4/yosemite-1.jpg"
                         src={
                             'https://res.cloudinary.com/jasontcrabtree/image/upload/v1735461721/jasontcrabtree-v4/jason-waving-2.gif'
                         }
